@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "351119767073",
+    "project_id": "yqhpapp",
+    "storage_bucket": "yqhpapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:351119767073:android:354e30cf5694a6e9855560",
+        "android_client_info": {
+          "package_name": "com.example.yqhd_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-dScDjbfseIDD31X5Bj7znjyA9AjgtGc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
