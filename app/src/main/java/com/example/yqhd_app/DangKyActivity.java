@@ -56,17 +56,8 @@ public class DangKyActivity extends AppCompatActivity {
                 String stringpass2 = medtpassdk2.getText().toString();
 
                 if (TextUtils.isEmpty(stringemail)){
-                    AlertDialog.Builder d = new AlertDialog.Builder(DangKyActivity.this);
-                    // thiết lập tiêu đề, nội dung, nút button
-                    d.setTitle("Cần có email");
-                    d.setTitle("Vui lòng nhập email của bạn để tiếp  tục");
-                    d.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intent = new Intent(DangKyActivity.this, DangKyActivity.class);
-                            startActivity(intent);
-                        }
-                    });
+                    Toast.makeText(DangKyActivity.this, "Vui lòng nhập email.", Toast.LENGTH_SHORT).show();
+                    medtmaildk.requestFocus();
                 } else if (TextUtils.isEmpty(stringpass1)) {
                     Toast.makeText(DangKyActivity.this, "Vui lòng nhập mật khẩu.", Toast.LENGTH_SHORT).show();
                     medtpassdk.requestFocus();
@@ -97,7 +88,7 @@ public class DangKyActivity extends AppCompatActivity {
                                         startActivity(intent);
 
                                     } else {
-                                        Toast.makeText(DangKyActivity.this, "Gmail đã được sử dụng",
+                                        Toast.makeText(DangKyActivity.this, "Gmail không hợp lệ.",
                                                 Toast.LENGTH_SHORT).show();
                                     }
                                 }
