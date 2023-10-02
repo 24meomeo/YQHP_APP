@@ -39,7 +39,7 @@ public class DangKyActivity extends AppCompatActivity {
         medtpassdk = findViewById(R.id.edtpassdk);
         medtpassdk2 = findViewById(R.id.edtpassdk2);
         mbtndangky = findViewById(R.id.btnDangKy);
-        mtvdn = findViewById(R.id.tvdn);
+        mtvdn = findViewById(R.id.tvdntrongdk);
 
 
         firestore = FirebaseFirestore.getInstance();
@@ -84,7 +84,7 @@ public class DangKyActivity extends AppCompatActivity {
                                         documentReference.set(userinfo);
 //                                        InfocollectionReference.add(userinfo);
 
-                                        Intent intent = new Intent(DangKyActivity.this, MainActivity.class);
+                                        Intent intent = new Intent(DangKyActivity.this, CheckmailActivity.class);
                                         startActivity(intent);
 
                                     } else {
@@ -101,10 +101,10 @@ public class DangKyActivity extends AppCompatActivity {
     }
 
     private void DangnhapListener() {
-        mbtndangky.setOnClickListener(new View.OnClickListener() {
+        mtvdn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DangKyActivity.this, MainActivity.class);
+                Intent intent = new Intent(DangKyActivity.this, DangNhapActivity.class);
                 startActivity(intent);
             }
         });

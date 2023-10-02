@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DangKyActivity"
-    android:background="#f3efff">
+    android:background="@drawable/banner1"
+    tools:context=".CheckmailActivity">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="270dp"
         android:layout_gravity="center"
-        android:background="@drawable/bannerdangky"
+        android:background="@drawable/bannerotp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -20,7 +21,7 @@
         android:id="@+id/thutu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-60dp"
+        android:layout_marginTop="0dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout">
@@ -38,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/outline_looks_two_24" />
+            app:srcCompat="@drawable/baseline_looks_two_24" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -92,7 +93,7 @@
     <LinearLayout
         android:id="@+id/layout2"
         android:layout_width="wrap_content"
-        android:layout_height="320dp"
+        android:layout_height="200dp"
         android:orientation="vertical"
         android:padding="20dp"
         android:background="@drawable/ic_framedangki"
@@ -101,7 +102,7 @@
         app:layout_constraintTop_toBottomOf="@+id/thutu2">
 
         <EditText
-            android:id="@+id/edtmaildk"
+            android:id="@+id/edtmailotp"
             android:layout_width="330dp"
             android:layout_height="70dp"
             android:background="@drawable/ic_frame"
@@ -113,58 +114,33 @@
             android:padding="14dp"
             android:textColor="@color/black"
             android:textSize="18dp"/>
-
-        <EditText
-            android:id="@+id/edtpassdk"
-            android:layout_width="330dp"
-            android:layout_height="70dp"
+        <TextView
+            android:id="@+id/tvnhanotp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
             android:layout_marginTop="20dp"
-            android:background="@drawable/ic_frame"
-            android:drawableStart="@drawable/baseline_lock_person_24"
-            android:drawablePadding="10dp"
-            android:inputType="textPassword"
-            android:padding="14dp"
+            android:text=" XÁC NHẬN TÀI KHOẢN."
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="18dp"
-            android:hint="Nhập mật khẩu"
+            android:textSize="15dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edtmaildn" />
-
-        <EditText
-            android:id="@+id/edtpassdk2"
-            android:layout_width="330dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/ic_frame"
-            android:drawableStart="@drawable/baseline_lock_person_24"
-            android:drawablePadding="10dp"
-            android:inputType="textPassword"
-            android:padding="14dp"
-            android:textColor="@color/black"
-            android:hint="Nhập lại mật khẩu"
-            android:textSize="18dp"
-            android:textColorHint="@color/black"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edtmaildn" />
+            app:layout_constraintRight_toRightOf="parent" />
 
     </LinearLayout>
     <Button
-        android:id="@+id/btnDangKy"
+        android:id="@+id/mbtntieptheo2"
         android:layout_width="250dp"
         android:layout_height="60dp"
         android:layout_marginTop="-30dp"
         android:background="@drawable/ic_framebutton"
-        android:text="đăng ký"
+        android:text="Tiếp theo"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout2" />
     <TextView
-        android:id="@+id/tvdntrongdk"
+        android:id="@+id/tvdnotp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -174,6 +150,6 @@
         android:textSize="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnDangKy" />
+        app:layout_constraintTop_toBottomOf="@+id/mbtntieptheo2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
