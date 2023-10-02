@@ -1,42 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DangNhapActivity"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/banner1"
+    tools:context=".DangNhapActivity">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/layout"
+      android:layout_width="match_parent"
+      android:layout_height="270dp"
+      android:layout_gravity="center"
+      android:background="@drawable/banner"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
 
   <LinearLayout
+      android:id="@+id/linearLayout"
       android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_height="250dp"
+      android:layout_marginTop="-80dp"
+      android:background="@drawable/ic_framedangki"
       android:orientation="vertical"
+      android:padding="20dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"
       app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/avata"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:orientation="vertical"
-        app:srcCompat="@drawable/baseline_account_circle_24" />
 
     <EditText
         android:id="@+id/edtmaildn"
         android:layout_width="330dp"
         android:layout_height="70dp"
-        android:layout_marginTop="30dp"
         android:background="@drawable/ic_frame"
         android:drawableStart="@drawable/baseline_email_24"
         android:drawablePadding="14dp"
-        android:inputType="textEmailAddress"
         android:hint="Email"
+        android:inputType="textEmailAddress"
         android:padding="14dp"
-        android:textStyle="italic"
         android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="18dp"
         app:layout_constraintTop_toBottomOf="@+id/avata" />
 
@@ -48,55 +56,60 @@
         android:background="@drawable/ic_frame"
         android:drawableStart="@drawable/baseline_lock_person_24"
         android:drawablePadding="10dp"
-        android:inputType="textPassword"
         android:hint="Mật khẩu"
-        android:textStyle="italic"
+        android:inputType="textPassword"
         android:padding="14dp"
         android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="18dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtmaildn" />
 
-    <Button
-        android:id="@+id/btnDangNhap"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/gradient_button"
-        android:text="đăng nhập"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/edtpassdn" />
-
-    <TextView
-        android:id="@+id/tvqmk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:fontFamily="sans-serif-thin"
-        android:text="Bạn quên mật khẩu?"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold|normal"
-        app:layout_constraintTop_toBottomOf="@+id/btnDangNhap" />
-
-
-    <Button
-        android:id="@+id/tvdk"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="80dp"
-        android:text="Tạo tài khoản"
-        android:textColor="@color/white"
-        android:background="@drawable/ic_framedangki"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/edtmaildn" />
 
   </LinearLayout>
+
+  <Button
+      android:id="@+id/btnDangNhap"
+      android:layout_width="250dp"
+      android:layout_height="60dp"
+      android:layout_marginTop="-30dp"
+      android:background="@drawable/ic_framebutton"
+      android:text="đăng nhập"
+      android:textSize="20dp"
+      android:textStyle="bold"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+  <TextView
+      android:id="@+id/tvqmk"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:layout_marginTop="30dp"
+      android:fontFamily="sans-serif-thin"
+      android:text="Bạn quên mật khẩu?"
+      android:textColor="@color/black"
+      android:textSize="20dp"
+      android:textStyle="bold|normal"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/btnDangNhap" />
+
+
+  <TextView
+      android:id="@+id/tvdk"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:layout_marginTop="20dp"
+      android:text="Tạo tài khoản"
+      android:textColor="@color/black"
+      android:textSize="20dp"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tvqmk" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

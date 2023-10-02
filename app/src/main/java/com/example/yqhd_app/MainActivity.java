@@ -28,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         Intent intent = new Intent(this, DangNhapActivity.class);
         startActivity(intent);
+
+
+
+        //////////// Hai Yen dung file nay nha
     }
 
 }
