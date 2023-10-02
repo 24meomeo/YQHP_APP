@@ -5,11 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -24,7 +27,7 @@ import com.google.firebase.auth.AuthResult;
 
 public class DangNhapActivity extends AppCompatActivity {
     private Button btnDangNhap;
-    private TextView tvdk;
+    private TextView tvdk, mtvquenmk;
     private EditText medtmail, medtpass;
     private boolean isResendClicked = false;
     private CountDownTimer countDownTimer;
@@ -39,8 +42,16 @@ public class DangNhapActivity extends AppCompatActivity {
         tvdk = findViewById(R.id.tvdk);
         medtmail = findViewById(R.id.edtmaildn);
         medtpass = findViewById(R.id.edtpassdn);
+        mtvquenmk = findViewById(R.id.tvqmk);
+
+
+//        medtmailquenpass = findViewById(R.id.edtemailquenpass);
+//        mbtnthoat = findViewById(R.id.btnthoatquenpass);
+//        mbtngui = findViewById(R.id.btnreset);
+
         Dangnhap();
         Dangky();
+        quenmatkhau();
     }
 
     private void Dangky() {
@@ -72,12 +83,7 @@ public class DangNhapActivity extends AppCompatActivity {
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
-//                                    if(task.isSuccessful()){
-//                                        if(medtmail.getText().toString() == "cherrycake6868@gmail.com" && medtpass.getText().toString() == "hehe3210"){
-//                                            Intent intent = new Intent(MaincuaYenActivity.this, adminActivvity.class);
-//                                            startActivity(intent);
-//                                        }
-//                                    }
+//
                                     if (task.isSuccessful()) {
                                         if ((medtmail.getText().toString()).equals("cherrycake6868@gmail.com") && (medtpass.getText().toString()).equals("hehe321")) {
                                             Intent intent = new Intent(DangNhapActivity.this, MainActivity.class);
@@ -134,6 +140,70 @@ public class DangNhapActivity extends AppCompatActivity {
                                 }
                             });
                 }
+            }
+        });
+    }
+
+    private void quenmatkhau() {
+        mtvquenmk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(DangNhapActivity.this);
+                View dialogView = getLayoutInflater().inflate(R.layout.dialog_quenpass, null);
+                EditText emailbox = dialogView.findViewById(R.id.edtemailquenpass);
+
+                builder.setView(dialogView);
+                AlertDialog dialog = builder.create();
+
+                dialogView.findViewById(R.id.btnthoatquenpass).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        AlertDialog.Builder d = new AlertDialog.Builder(DangNhapActivity.this);
+                        // thiết lập tiêu đề, nội dung, nút button
+                        d.setTitle("QUAY LẠI");
+                        d.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(DangNhapActivity.this, DangNhapActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+                        d.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
+
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+
+                            }
+                        });
+                        d.create().show();
+
+                    }
+                });
+                dialogView.findViewById(R.id.btnreset).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String userEmail = emailbox.getText().toString();
+                        if (TextUtils.isEmpty(userEmail) && !Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()) {
+                            Toast.makeText(DangNhapActivity.this, "Vui lòng nhập email đã đăng kí", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        FirebaseAuth auth = FirebaseAuth.getInstance();
+//                        String emailAddress = "meomeo2483@gmail.com";
+
+                        auth.sendPasswordResetEmail(userEmail)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                        }
+                                        Toast.makeText(DangNhapActivity.this, "Vui lòng kiểm tra gmail của bạn!", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                    }
+                });
+                dialog.show();
             }
         });
     }
