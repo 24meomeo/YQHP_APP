@@ -23,3 +23,16 @@ Ngày nay, công nghệ thông tin đã ngày càng ảnh hưởng tích cực t
 - 🦥Hine
 - 🤡QuocDepTrai
 - 😘HangDepGai
+
+## Goals
+
+- Git:
+  - Hiểu được hệ thống quản lý Git
+  - Nắm được cách sử dụng máy chủ Github
+ - Complete Funtions:
+	 - Online Payment
+	 - Chat SMS
+	 - Interface Changing
+## Objectives
+
+- 
