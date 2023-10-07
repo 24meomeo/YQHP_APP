@@ -45,3 +45,10 @@ Ngày nay, công nghệ thông tin đã ngày càng ảnh hưởng tích cực t
    -   Giúp người bán tiết kiệm chi phí đưa sản phẩm ra thị trường so với kênh truyền thống.
     -   Thu hút đông đảo người dùng tham gia mua bán trên nền tảng.
     -   Xây dựng nên một thị trường thương mại điện tử quy mô lớn cho phân khúc công nghệ.
+## Member List
+| Thành viên | Mã số sinh viên |   
+| :--- | :--- | :--- | :--- |
+| Lê Thị Hải Yến| 21DH114336 |
+| Lê Thiết Duy | 21DH114336 |
+| Nguyễn Bùi Bà Quốc |   
+| Nguyễn Thị Thu Hằng |  
