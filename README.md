@@ -46,7 +46,6 @@ Ngày nay, công nghệ thông tin đã ngày càng ảnh hưởng tích cực t
     -   Thu hút đông đảo người dùng tham gia mua bán trên nền tảng.
     -   Xây dựng nên một thị trường thương mại điện tử quy mô lớn cho phân khúc công nghệ.
 ## Assignment
-|  | Cột 2 | Cột 3 | Cột 4 |
 | :--- | Front end | Back end | Thiết kế | Kiểm thử |
 | Hải Yến | X | X | X | X |
 | Bá Quốc | X | X | H |   |
