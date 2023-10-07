@@ -52,7 +52,7 @@ Ngày nay, công nghệ thông tin đã ngày càng ảnh hưởng tích cực t
 | Thiết Duy | X | X | X | x |
 | Thu Hằng | X | X | M |
 ---
-|  | Front end | Cột 3 | Cột 4 |
+|  | Front end |  Back end | Thiết kế | Kiểm thử |
 | :--- | :--- | :--- | :--- |
 | A | B | C | D |
 | E | F | G | H |
