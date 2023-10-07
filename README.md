@@ -47,8 +47,9 @@ Ngày nay, công nghệ thông tin đã ngày càng ảnh hưởng tích cực t
     -   Xây dựng nên một thị trường thương mại điện tử quy mô lớn cho phân khúc công nghệ.
 ## Assignment
 
-|| Front end| Back end | Thiết kế | Kiểm thử |
-| :--- | :--- | :--- | :--- |
-| Hải Yến | B | C | D |
-| Bá Quốc | F | G | H |
-| Thiết Duy | K | L | M |
+| Tên | Front end | Back end | Thiết kế | Kiểm thử |
+| :--- | :--- | :--- | :--- | :--- |
+| Hải Yến | B | C | D | D |
+| Bá Quốc | F | G | H | D |
+| Thiết Duy | K | L | M | D |
+| Thu Hằng | K | L | M | D |
