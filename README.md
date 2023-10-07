@@ -29,10 +29,19 @@ Ngày nay, công nghệ thông tin đã ngày càng ảnh hưởng tích cực t
 - Git:
   - Hiểu được hệ thống quản lý Git
   - Nắm được cách sử dụng máy chủ Github
- - Complete Funtions:
-	 - Online Payment
-	 - Chat SMS
-	 - Interface Changing
+- Complete Funtions:
+	- Online Payment
+	- Chat SMS
+	- Interface Changing
+- Mục đích của ứng dụng bán điện thoại, laptop trực tuyến:
+	-   Kết nối người bán và người mua hàng để thực hiện giao dịch bán/mua sản phẩm.   
+	-   Tạo điều kiện cho người bán giới thiệu, quảng bá sản phẩm của mình trên nền tảng số.    
+	-   Cho phép người mua dễ dàng tìm kiếm, so sánh thông tin sản phẩm phù hợp nhu cầu.
 ## Objectives
 
-- 
+- Mục tiêu của ứng dụng bán điện thoại, laptop trực tuyến:
+	-	Thúc đẩy giao dịch thương mại điện tử trong lĩnh vực công nghệ.
+   -   Tạo ra nguồn thu lớn thông qua việc thu phí dịch vụ, hoa hồng bán hàng.
+   -   Giúp người bán tiết kiệm chi phí đưa sản phẩm ra thị trường so với kênh truyền thống.
+    -   Thu hút đông đảo người dùng tham gia mua bán trên nền tảng.
+    -   Xây dựng nên một thị trường thương mại điện tử quy mô lớn cho phân khúc công nghệ.
