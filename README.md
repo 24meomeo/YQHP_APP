@@ -46,9 +46,9 @@ Ngày nay, công nghệ thông tin đã ngày càng ảnh hưởng tích cực t
     -   Thu hút đông đảo người dùng tham gia mua bán trên nền tảng.
     -   Xây dựng nên một thị trường thương mại điện tử quy mô lớn cho phân khúc công nghệ.
 ## Member List
-| Thành viên | Mã số sinh viên |   
+| Cột 1 | Cột 2 | Cột 3 | Cột 4 |
 | :--- | :--- | :--- | :--- |
-| Lê Thị Hải Yến| 21DH114336 |
-| Lê Thiết Duy | 21DH114336 |
-| Nguyễn Bùi Bà Quốc |   
-| Nguyễn Thị Thu Hằng |  
+| A | B | C | D |
+| E | F | G | H |
+| I | K | L | M |
+## Assignment
