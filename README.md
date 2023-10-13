@@ -37,11 +37,8 @@ Ngày nay, công nghệ thông tin đã ngày càng ảnh hưởng tích cực t
 
 | Tên | Front end | Back end | Thiết kế | Kiểm thử |
 | :--- | :--- | :--- | :--- | :--- |
-| Hải Yến | B | C | D | D |
-| Bá Quốc | F | G | H | D |
-| Thiết Duy | K | L | M | D |
-| Thu Hằng | K | L | M | D |
 | Hải Yến | X | X | X | X |
 | Bá Quốc | X | X | X | X |
 | Thiết Duy | X | X | X | X |
 | Thu Hằng | X | X | X | X |
+
