@@ -7,13 +7,16 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+import com.example.yqhd_app.HomeDashBoard.Fragment.HomeFragmentActivity;
+import com.example.yqhd_app.HomeDashBoard.Fragment.ProductFragmentActivity;
+import com.example.yqhd_app.HomeDashBoard.Fragment.UserFragmentActivity;
 import com.example.yqhd_app.R;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 
 public class HomeActivity extends AppCompatActivity {
-    MeowBottomNavigation btnav;
+    MeowBottomNavigation meowbottomNav;
 //    int selectedMenu = 1;
 
     @Override
@@ -23,16 +26,16 @@ public class HomeActivity extends AppCompatActivity {
 
 
         //MeoBottomNavigation
-        btnav = findViewById(R.id.btnav);
+        meowbottomNav = findViewById(R.id.btnav);
         loadFragment(new HomeFragmentActivity());
-        btnav.show(1,true );
-        btnav.add(new MeowBottomNavigation.Model(1, R.drawable.btnavhome));
-        btnav.add(new MeowBottomNavigation.Model(2, R.drawable.btnavgrid));
-        btnav.add(new MeowBottomNavigation.Model(3, R.drawable.btnavheart));
-        btnav.add(new MeowBottomNavigation.Model(4, R.drawable.btnavuserinf));
+        meowbottomNav.show(1,true );
+        meowbottomNav.add(new MeowBottomNavigation.Model(1, R.drawable.btnavhome));
+        meowbottomNav.add(new MeowBottomNavigation.Model(2, R.drawable.btnavgrid));
+        meowbottomNav.add(new MeowBottomNavigation.Model(3, R.drawable.btnavuserinf));
+//        btnav.add(new MeowBottomNavigation.Model(4, R.drawable.btnavuserinf));
 
-        btnav.getId();
-        btnav.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
+        meowbottomNav.getId();
+        meowbottomNav.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
             @Override
             public Unit invoke(MeowBottomNavigation.Model model) {
 
@@ -49,25 +52,26 @@ public class HomeActivity extends AppCompatActivity {
 //                        startActivity(categoryintent);
                         break;
                     case 3:
-                        loadFragment(new FavouriteFragmentActivity());
+                        loadFragment(new UserFragmentActivity());
 //                        Intent favouritelistintent = new Intent(MainActivity.this, );
 //                        startActivity(favouritelistintent);
                         break;
-                    case 4:
-                        loadFragment(new UserFragmentActivity());
-//                        mdrawLo.openDrawer(GravityCompat.START);
-                        break;
+//                    case 4:
+//                        loadFragment(new UserFragmentActivity());
+////                        mdrawLo.openDrawer(GravityCompat.START);
+//                        break;
                 }
                 return null;
             }
         });
-        btnav.setOnShowListener(new Function1<MeowBottomNavigation.Model, Unit>() {
+        meowbottomNav.setOnShowListener(new Function1<MeowBottomNavigation.Model, Unit>() {
             @Override
             public Unit invoke(MeowBottomNavigation.Model model) {
 
                 return null;
             }
         });
+    }
 
 
 
