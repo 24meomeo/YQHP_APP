@@ -29,6 +29,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".HomeDashBoard.HomeActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".HomeDashBoard.UserInfoActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".HomeDashBoard.SanPham.ChiTietSPActivity"
+            android:exported="false">
+        </activity>
     </application>
 
 </manifest>

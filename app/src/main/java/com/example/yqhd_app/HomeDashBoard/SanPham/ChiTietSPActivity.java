@@ -16,8 +16,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
-import com.example.masterphone.Home.HomeActivity;
-import com.example.masterphone.R;
+
+import com.example.yqhd_app.HomeDashBoard.HomeActivity;
+import com.example.yqhd_app.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
