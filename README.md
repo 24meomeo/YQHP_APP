@@ -1,4 +1,3 @@
-@@ -1,55 +1,55 @@
 # PhoneMaster 😺📱
 Một app bán điện thoại, laptop nhằm cung cấp các sản phẩm liên quan đến lĩnh vực truyền tải thông tin trên nền tảng trực tuyến. Giao diện của cửa hàng **PhoneMaster** là một giao diện dễ nhìn giúp người dùng dễ dàng tìm và mua sắm các sản phẩm. Hệ thống cung cấp chi tiết về từng sản phẩm, cho phép người dùng xem, đánh giá, đặt hàng và bình luận về sản phẩm hơn thế nữa ta còn có thể thanh toán tích hợp thanh toán online
 # Intro
