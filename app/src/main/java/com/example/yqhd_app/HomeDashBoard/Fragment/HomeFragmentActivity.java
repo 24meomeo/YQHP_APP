@@ -19,17 +19,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.denzcoskun.imageslider.ImageSlider;
-import com.example.masterphone.Home.Adapter.ItemFavouAdapter;
-import com.example.masterphone.Home.Adapter.ItemRcmAdapter;
-import com.example.masterphone.Home.UserInfoActivity;
-import com.example.masterphone.R;
-import com.example.masterphone.SanPham.ChiTietSPActivity;
-import com.example.masterphone.SanPham.ProductModel;
+//import com.denzcoskun.imageslider.ImageSlider;
+
 import com.example.yqhd_app.HomeDashBoard.Adapter.ItemFavouAdapter;
 import com.example.yqhd_app.HomeDashBoard.Adapter.ItemRcmAdapter;
 import com.example.yqhd_app.HomeDashBoard.SanPham.ChiTietSPActivity;
 import com.example.yqhd_app.HomeDashBoard.SanPham.ProductModel;
+import com.example.yqhd_app.HomeDashBoard.UserInfoActivity;
 import com.example.yqhd_app.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;

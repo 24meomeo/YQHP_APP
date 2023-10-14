@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/homegradient"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Home.Fragment.HomeFragmentActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:id="@+id/imgSong"

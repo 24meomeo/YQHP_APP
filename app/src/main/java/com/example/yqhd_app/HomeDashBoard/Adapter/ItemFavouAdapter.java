@@ -14,9 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.masterphone.R;
-import com.example.masterphone.SanPham.ProductModel;
 import com.example.yqhd_app.HomeDashBoard.SanPham.ProductModel;
+import com.example.yqhd_app.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;

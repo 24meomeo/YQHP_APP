@@ -13,9 +13,11 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
-import com.example.masterphone.Customer.Login;
-import com.example.masterphone.Home.UserInfoActivity;
-import com.example.masterphone.R;
+
+import com.example.yqhd_app.DangKyActivity;
+import com.example.yqhd_app.DangNhapActivity;
+import com.example.yqhd_app.HomeDashBoard.UserInfoActivity;
+import com.example.yqhd_app.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -99,7 +101,7 @@ public class UserFragmentActivity extends Fragment {
             @Override
             public void onClick(View v) {
                 firebaseAuth.signOut();
-                Intent intentSignOut = new Intent(UserFragmentActivity.this.getActivity(), Login.class);
+                Intent intentSignOut = new Intent(UserFragmentActivity.this.getActivity(), DangNhapActivity.class);
                 startActivity(intentSignOut);
             }
         });

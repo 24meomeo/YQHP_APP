@@ -16,10 +16,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.masterphone.R;
-import com.example.masterphone.SanPham.ChiTietSPActivity;
-import com.example.masterphone.SanPham.ProductGridAdapter;
-import com.example.masterphone.SanPham.ProductModel;
+
+import com.example.yqhd_app.HomeDashBoard.SanPham.ChiTietSPActivity;
+import com.example.yqhd_app.HomeDashBoard.SanPham.ProductGridAdapter;
+import com.example.yqhd_app.HomeDashBoard.SanPham.ProductModel;
+import com.example.yqhd_app.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.DocumentSnapshot;
