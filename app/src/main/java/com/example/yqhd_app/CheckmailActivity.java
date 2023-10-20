@@ -80,7 +80,7 @@ public class CheckmailActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             verification = mUser.isEmailVerified();
                             if (verification == true) {
-                                Intent intent = new Intent(CheckmailActivity.this, MainActivity.class);
+                                Intent intent = new Intent(CheckmailActivity.this, HoanThanhActivity.class);
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(CheckmailActivity.this, "Vui lòng xác nhận gmail", Toast.LENGTH_SHORT).show();
