@@ -50,7 +50,6 @@ public class DangNhapActivity extends AppCompatActivity {
 //        mbtngui = findViewById(R.id.btnreset);
 
         Dangnhap();
-        btnDangNhap.performClick();
         Dangky();
         quenmatkhau();
     }
