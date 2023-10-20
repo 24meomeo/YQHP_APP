@@ -51,6 +51,7 @@ public class DangNhapActivity extends AppCompatActivity {
 //        mbtngui = findViewById(R.id.btnreset);
 
         Dangnhap();
+        btnDangNhap.performClick();
         Dangky();
         quenmatkhau();
     }
@@ -86,7 +87,7 @@ public class DangNhapActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
 //
                                     if (task.isSuccessful()) {
-                                        if ((medtmail.getText().toString()).equals("cherrycake6868@gmail.com") && (medtpass.getText().toString()).equals("hehe321")) {
+                                        if ((medtmail.getText().toString()).equals("yenquochangpu@gmail.com") && (medtpass.getText().toString()).equals("hehe321")) {
                                             Intent intent = new Intent(DangNhapActivity.this, MainActivity.class);
                                             startActivity(intent);
                                         } else {
@@ -191,7 +192,6 @@ public class DangNhapActivity extends AppCompatActivity {
                             return;
                         }
                         FirebaseAuth auth = FirebaseAuth.getInstance();
-//                        String emailAddress = "meomeo2483@gmail.com";
 
                         auth.sendPasswordResetEmail(userEmail)
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {

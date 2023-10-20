@@ -23,6 +23,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class DangKyActivity extends AppCompatActivity {
     private EditText medtmaildk, medtpassdk, medtpassdk2 ;
@@ -61,11 +62,17 @@ public class DangKyActivity extends AppCompatActivity {
                 } else if (TextUtils.isEmpty(stringpass1)) {
                     Toast.makeText(DangKyActivity.this, "Vui lòng nhập mật khẩu.", Toast.LENGTH_SHORT).show();
                     medtpassdk.requestFocus();
+                }else if(stringpass1.length() < 6){
+                    Toast.makeText(DangKyActivity.this, "Mật khẩu quá ngắn.", Toast.LENGTH_SHORT).show();
+                    medtpassdk.requestFocus();
                 } else if (TextUtils.isEmpty(stringpass2)) {
                     Toast.makeText(DangKyActivity.this, "Vui lòng nhập lại mật khẩu.", Toast.LENGTH_SHORT).show();
                     medtpassdk2.requestFocus();
                 } else if (!stringpass1.equals(stringpass2)) {
                     Toast.makeText(DangKyActivity.this, "Mật khẩu không khớp.", Toast.LENGTH_SHORT).show();
+                } else if (!isValidEmail(stringemail)) {
+                    Toast.makeText(DangKyActivity.this, "Email không hợp lệ", Toast.LENGTH_SHORT).show();
+                     medtmaildk.requestFocus();
                     
                 }else{
                     auth.createUserWithEmailAndPassword(stringemail, stringpass1)
@@ -88,7 +95,7 @@ public class DangKyActivity extends AppCompatActivity {
                                         startActivity(intent);
 
                                     } else {
-                                        Toast.makeText(DangKyActivity.this, "Gmail không hợp lệ.",
+                                        Toast.makeText(DangKyActivity.this, "Gmail đã được sử dụng.",
                                                 Toast.LENGTH_SHORT).show();
                                     }
                                 }
@@ -98,6 +105,10 @@ public class DangKyActivity extends AppCompatActivity {
         });
 
 
+    }
+    private boolean isValidEmail(String email) {
+        String emailPattern = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        return Pattern.matches(emailPattern, email);
     }
 
     private void DangnhapListener() {
