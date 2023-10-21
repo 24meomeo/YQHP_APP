@@ -11,6 +11,6 @@ public class QuanLyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.quanly_activity_quanly);
+        setContentView(R.layout.activity_quanly_quanlychinh);
     }
 }
