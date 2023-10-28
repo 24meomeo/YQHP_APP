@@ -11,10 +11,12 @@
         android:id="@+id/tablayoutkhohang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:tabBackground="@color/purple_200"
+        app:tabIndicatorColor="@color/purple_200"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
-    <androidx.viewpager.widget.ViewPager
+    <com.example.yqhd_app.QuanLy.TabFragment.customViewPager
         android:id="@+id/viewpagerkhohang"
         android:layout_width="match_parent"
         android:layout_height="700dp"
