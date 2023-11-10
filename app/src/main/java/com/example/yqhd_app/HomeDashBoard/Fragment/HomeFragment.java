@@ -118,7 +118,7 @@ public class HomeFragment extends Fragment implements ItemFavouAdapter.onClickIt
         mimgbtCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cartintent = new Intent(HomeFragmentActivity.this.getActivity(), GioHangActivity.class);
+                Intent cartintent = new Intent(HomeFragment.this.getActivity(), GioHangActivity.class);
                 startActivity(cartintent);
             }
         });
