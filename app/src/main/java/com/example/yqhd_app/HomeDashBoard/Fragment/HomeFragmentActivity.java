@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 //import com.denzcoskun.imageslider.ImageSlider;
 
+import com.example.yqhd_app.GioHang.GioHangActivity;
 import com.example.yqhd_app.HomeDashBoard.Adapter.ItemFavouAdapter;
 import com.example.yqhd_app.HomeDashBoard.Adapter.ItemRcmAdapter;
 import com.example.yqhd_app.HomeDashBoard.SanPham.ChiTietSPActivity;
@@ -114,7 +115,13 @@ public class HomeFragmentActivity extends Fragment implements ItemFavouAdapter.o
             }
         });
         //Trỏ tới giỏ hàng
-
+        mimgbtCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cartintent = new Intent(HomeFragmentActivity.this.getActivity(), GioHangActivity.class);
+                startActivity(cartintent);
+            }
+        });
         //Liên hệ
 
 
