@@ -8,15 +8,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.yqhd_app.QuanLy.Fragment.ViewPagerAdapter;
+import com.example.yqhd_app.QuanLy.TabFragment.ThuongHieuFragment;
 import com.example.yqhd_app.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class QuanLyActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +40,7 @@ public class QuanLyActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                switch (position){
+                switch (position) {
                     case 0:     //Nếu không có setChecked(true) thì lúc lướt qua lướt lại thì cái thanh bottom nav sẽ không chuyển icon
                         bottomNavigationView.getMenu().findItem(R.id.menukho).setChecked(true);
                         break;
@@ -58,7 +61,7 @@ public class QuanLyActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.menukho:
                         viewPager.setCurrentItem(0);
                         break;
@@ -74,7 +77,7 @@ public class QuanLyActivity extends AppCompatActivity {
         });
 
         int userId = 0;
-        if(userId == 0){
+        if (userId == 0) {
 
         }
         if (userId == 0) {
@@ -98,5 +101,15 @@ public class QuanLyActivity extends AppCompatActivity {
             // Toast.makeText(this, "Bạn không có quyền truy cập", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    public void gotoAddProducts() {
+//        if(isAdded()){
+        FragmentTransaction fmtrans = getSupportFragmentManager().beginTransaction();
+        ThuongHieuFragment taikhoanFragment = new ThuongHieuFragment();
+        fmtrans.replace(R.id.viewpagerquanly, taikhoanFragment);
+        fmtrans.addToBackStack(null);
+        fmtrans.commit();
+//        }
     }
 }
