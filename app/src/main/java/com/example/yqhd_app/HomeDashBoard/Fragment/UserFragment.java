@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 
-import com.example.yqhd_app.DangKyActivity;
 import com.example.yqhd_app.DangNhapActivity;
 import com.example.yqhd_app.HomeDashBoard.UserInfoActivity;
 import com.example.yqhd_app.R;
@@ -26,7 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-public class UserFragmentActivity extends Fragment {
+public class UserFragment extends Fragment {
     ImageView mimgUser;
     TextView mtvUserName, mtvUserInfo, mtvUserVoucher, mtvUserOrders;
     Button mbtnLogout;
@@ -77,7 +76,7 @@ public class UserFragmentActivity extends Fragment {
             @Override
             public void onSuccess(Uri uri) {
 //                Picasso.get().load(uri).into(mimgProfileImage);
-                Glide.with(UserFragmentActivity.this).load(uri).override(100,100).centerCrop().into(mimgUser);
+                Glide.with(UserFragment.this).load(uri).override(100,100).centerCrop().into(mimgUser);
             }
         });
 
@@ -93,7 +92,7 @@ public class UserFragmentActivity extends Fragment {
         mtvUserInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentUserInfo = new Intent(UserFragmentActivity.this.getActivity(), UserInfoActivity.class);
+                Intent intentUserInfo = new Intent(UserFragment.this.getActivity(), UserInfoActivity.class);
                 startActivity(intentUserInfo);
             }
         });
@@ -101,7 +100,7 @@ public class UserFragmentActivity extends Fragment {
             @Override
             public void onClick(View v) {
                 firebaseAuth.signOut();
-                Intent intentSignOut = new Intent(UserFragmentActivity.this.getActivity(), DangNhapActivity.class);
+                Intent intentSignOut = new Intent(UserFragment.this.getActivity(), DangNhapActivity.class);
                 startActivity(intentSignOut);
             }
         });
@@ -117,7 +116,7 @@ public class UserFragmentActivity extends Fragment {
             @Override
             public void onSuccess(Uri uri) {
                 // load ảnh từ URI vào ImageView tại đây
-                Glide.with(UserFragmentActivity.this).load(uri).override(100, 100).centerCrop().into(mimgUser);
+                Glide.with(UserFragment.this).load(uri).override(100, 100).centerCrop().into(mimgUser);
             }
         });
         DocumentReference InfoProfiledocumentReference = firestore.collection("USERS").document(userID);
