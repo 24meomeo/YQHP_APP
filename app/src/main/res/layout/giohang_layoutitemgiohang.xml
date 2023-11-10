@@ -40,9 +40,10 @@
 
             <TextView
                 android:id="@+id/tvCartShowSoLuong"
-                android:text="Số lượng   "
+                android:text="Số lượng:   "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:layout_marginTop="8dp"
                 app:layout_constraintLeft_toRightOf="@id/ivCartItem"
                 app:layout_constraintTop_toBottomOf="@id/tvCartNameItem" />
@@ -51,6 +52,7 @@
                 android:id="@+id/tvCartSoLuong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:layout_marginTop="8dp"
                 app:layout_constraintLeft_toRightOf="@id/tvCartShowSoLuong"
                 app:layout_constraintTop_toBottomOf="@id/tvCartNameItem" />
@@ -63,6 +65,7 @@
                 android:layout_marginTop="10dp"
                 android:textSize="24sp"
                 android:textStyle="bold"
+                android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/ivCartItem"
                 app:layout_constraintTop_toBottomOf="@id/tvCartSoLuong" />

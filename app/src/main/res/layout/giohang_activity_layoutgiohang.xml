@@ -82,6 +82,7 @@
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:layout_marginBottom="8dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -91,6 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="36dp"
             android:layout_marginTop="16dp"
+            android:textColor="@color/black"
             android:text="Tổng tiền:"
             android:textSize="16sp"
             app:layout_constraintLeft_toLeftOf="parent"

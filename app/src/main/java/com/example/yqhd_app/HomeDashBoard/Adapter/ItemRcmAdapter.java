@@ -1,5 +1,6 @@
 package com.example.yqhd_app.HomeDashBoard.Adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,18 +16,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import com.example.yqhd_app.GioHang.GioHangItemModel;
 import com.example.yqhd_app.HomeDashBoard.SanPham.ProductModel;
 import com.example.yqhd_app.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class ItemRcmAdapter extends RecyclerView.Adapter<ItemRcmAdapter.ItemViewHolder> {
     private ArrayList<ProductModel> aListItemRCM;
@@ -71,39 +79,39 @@ public class ItemRcmAdapter extends RecyclerView.Adapter<ItemRcmAdapter.ItemView
             @Override
             public void onClick(View v) {
 //                Toast.makeText(v.getContext(), "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
-//                Map<String, Object> cartMap = new HashMap<>();
-//                cartMap.put("name", item.getName());
-//                cartMap.put("price", item.getPrice());
-//                cartMap.put("totalQuantity", quantity);
-////                    Glide.with(holder.aitfvpict.getContext()).load(item.getImage()).into(holder.aitfvpict);
-////                    cartMap.put("anh", aitfvpict.getContext().toString());
-//                cartMap.put("anh", item.getImage());
-//                CollectionReference CartcollectionReference = firestore.collection("USERS").document(firebaseAuth.getCurrentUser().getUid()).collection("AddToCart");
-////                CartcollectionReference.add(cartMap);
-//                CartcollectionReference.get().addOnCompleteListener(task -> {
-//                    if (task.isSuccessful()) {
-//                        List<DocumentSnapshot> collect = task.getResult().getDocuments().stream().
-//                                filter(s -> Objects.requireNonNull(s.toObject(MyCartModel.class))
-//                                        .name.contains(holder.aitrcmname.getText().toString()))
-//                                .collect(Collectors.toList());
+                Map<String, Object> cartMap = new HashMap<>();
+                cartMap.put("name", item.getName());
+                cartMap.put("price", item.getPrice());
+                cartMap.put("totalQuantity", quantity);
+//                    Glide.with(holder.aitfvpict.getContext()).load(item.getImage()).into(holder.aitfvpict);
+//                    cartMap.put("anh", aitfvpict.getContext().toString());
+                cartMap.put("anh", item.getImage());
+                CollectionReference CartcollectionReference = firestore.collection("USERS").document(firebaseAuth.getCurrentUser().getUid()).collection("AddToCart");
+//                CartcollectionReference.add(cartMap);
+                CartcollectionReference.get().addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        List<DocumentSnapshot> collect = task.getResult().getDocuments().stream().
+                                filter(s -> Objects.requireNonNull(s.toObject(GioHangItemModel.class))
+                                        .name.contains(holder.aitrcmname.getText().toString()))
+                                .collect(Collectors.toList());
+
+                        Log.d("Catr", "collect: " + collect.isEmpty());
+                        if (!collect.isEmpty()) {
+                            Log.d("Catr", "addToCart: " + collect.get(0).getId());
+                            GioHangItemModel myCartModel = collect.get(0).toObject(GioHangItemModel.class);
+                            myCartModel.setId(collect.get(0).getId());
+                            myCartModel.totalQuantity = myCartModel.totalQuantity + /*Integer.parseInt(tvQuantityC.getText().toString())*/ quantity;
+                            CartcollectionReference.document(myCartModel.id).set(myCartModel);
+                            Toast.makeText(v.getContext(), "Cập nhật giỏ hàng thành công", Toast.LENGTH_SHORT).show();
+                        } else {
+                            CartcollectionReference.add(cartMap);
+                            Toast.makeText(v.getContext(), "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
+                        }
 //
-//                        Log.d("Catr", "collect: " + collect.isEmpty());
-//                        if (!collect.isEmpty()) {
-//                            Log.d("Catr", "addToCart: " + collect.get(0).getId());
-//                            MyCartModel myCartModel = collect.get(0).toObject(MyCartModel.class);
-//                            myCartModel.setId(collect.get(0).getId());
-//                            myCartModel.totalQuantity = myCartModel.totalQuantity + /*Integer.parseInt(tvQuantityC.getText().toString())*/ quantity;
-//                            CartcollectionReference.document(myCartModel.id).set(myCartModel);
-//                            Toast.makeText(v.getContext(), "Cập nhật giỏ hàng thành công", Toast.LENGTH_SHORT).show();
-//                        } else {
-//                            CartcollectionReference.add(cartMap);
-//                            Toast.makeText(v.getContext(), "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
-//                        }
-////
-////                        Intent i = new Intent(ChiTietSPActivity.this, GioHangActivity.class);
-////                        startActivity(i);
-//                    }
-//                });
+//                        Intent i = new Intent(ChiTietSPActivity.this, GioHangActivity.class);
+//                        startActivity(i);
+                    }
+                });
             }
         });
         holder.favouriteList.whereEqualTo("image",item.getImage())
