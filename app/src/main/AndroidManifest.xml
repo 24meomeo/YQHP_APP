@@ -44,6 +44,10 @@
             android:name=".HomeDashBoard.SanPham.ChiTietSPActivity"
             android:exported="false">
         </activity>
+        <activity
+            android:name=".GioHang.GioHangActivity"
+            android:exported="false">
+        </activity>
     </application>
 
 </manifest>
