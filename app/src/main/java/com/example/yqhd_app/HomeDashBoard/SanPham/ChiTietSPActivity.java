@@ -3,6 +3,7 @@ package com.example.yqhd_app.HomeDashBoard.SanPham;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -17,17 +18,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 
+import com.example.yqhd_app.GioHang.GioHangActivity;
+import com.example.yqhd_app.GioHang.GioHangItemModel;
 import com.example.yqhd_app.HomeDashBoard.HomeActivity;
 import com.example.yqhd_app.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.NumberFormat;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class ChiTietSPActivity extends AppCompatActivity {
 
@@ -112,6 +120,7 @@ public class ChiTietSPActivity extends AppCompatActivity {
         btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                addToCart();
             }
         });
 
@@ -184,7 +193,57 @@ public class ChiTietSPActivity extends AppCompatActivity {
         });
 
     }
+    //Thêm vào giỏ hàng
+    private void addToCart() {
+        final HashMap<String, Object> cartMap = new HashMap<>();
 
+//        lấy hình ảnh khi người dùng click chọn sản phẩm
+        String anh = getIntent().getStringExtra("anh");
+        totalPrice = getTotalPrice();
+
+        cartMap.put("name", tvNameDetailC.getText().toString());
+        cartMap.put("price", getIntent().getIntExtra("gia", 0));
+        cartMap.put("totalQuantity", Integer.parseInt(tvQuantityC.getText().toString()));
+        cartMap.put("anh", anh);  // thêm field hình ảnh để lưu trữ trong firebase
+
+        CollectionReference collectionReference = firestore.collection("USERS").document(auth.getCurrentUser().getUid()).collection("AddToCart");
+
+        collectionReference.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                List<DocumentSnapshot> collect = task.getResult().getDocuments().stream().
+                        filter(s -> Objects.requireNonNull(s.toObject(GioHangItemModel.class))
+                                .name.contains(tvNameDetailC.getText().toString()))
+                        .collect(Collectors.toList());
+
+                Log.d("Catr", "collect: " + collect.isEmpty());
+                if (!collect.isEmpty()) {
+                    Log.d("Catr", "addToCart: " + collect.get(0).getId());
+                    GioHangItemModel myCartModel = collect.get(0).toObject(GioHangItemModel.class);
+                    myCartModel.setId(collect.get(0).getId());
+                    myCartModel.totalQuantity = myCartModel.totalQuantity + Integer.parseInt(tvQuantityC.getText().toString());
+                    collectionReference.document(myCartModel.id).set(myCartModel);
+                    Toast.makeText(ChiTietSPActivity.this, "Cập nhật giỏ hàng thành công", Toast.LENGTH_SHORT).show();
+                } else {
+                    collectionReference.add(cartMap);
+                    Toast.makeText(ChiTietSPActivity.this, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
+                }
+
+                Intent i = new Intent(ChiTietSPActivity.this, GioHangActivity.class);
+                startActivity(i);
+            }
+        });
+
+//        firestore.collection("USERS").document(auth.getCurrentUser().getUid())
+//                .collection("AddToCart").add(cartMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<DocumentReference> task) {
+////                        Intent i = new Intent(DetailActivity.this, GIoHangActivity.class);
+////                        startActivity(i);
+//                        Toast.makeText(DetailActivity.this, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
+//                        finish();
+//                    }
+//                });
+    }
 
 
     // Thêm vào danh sách yêu thích //
