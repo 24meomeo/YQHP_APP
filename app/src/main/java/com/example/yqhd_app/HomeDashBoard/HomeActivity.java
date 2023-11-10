@@ -7,9 +7,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
-import com.example.yqhd_app.HomeDashBoard.Fragment.HomeFragmentActivity;
-import com.example.yqhd_app.HomeDashBoard.Fragment.ProductFragmentActivity;
-import com.example.yqhd_app.HomeDashBoard.Fragment.UserFragmentActivity;
+import com.example.yqhd_app.HomeDashBoard.Fragment.HomeFragment;
+import com.example.yqhd_app.HomeDashBoard.Fragment.ProductFragment;
+import com.example.yqhd_app.HomeDashBoard.Fragment.UserFragment;
 import com.example.yqhd_app.R;
 
 import kotlin.Unit;
@@ -27,7 +27,7 @@ public class HomeActivity extends AppCompatActivity {
 
         //MeoBottomNavigation
         meowbottomNav = findViewById(R.id.btnav);
-        loadFragment(new HomeFragmentActivity());
+        loadFragment(new HomeFragment());
         meowbottomNav.show(1,true );
         meowbottomNav.add(new MeowBottomNavigation.Model(1, R.drawable.btnavhome));
         meowbottomNav.add(new MeowBottomNavigation.Model(2, R.drawable.btnavgrid));
@@ -41,18 +41,18 @@ public class HomeActivity extends AppCompatActivity {
 
                 switch (model.getId()){
                     case 1:
-                        loadFragment(new HomeFragmentActivity());
+                        loadFragment(new HomeFragment());
 
 //                        Intent homeintent = new Intent(MainActivity.this,);
 //                        startActivity(homeintent);
                         break;
                     case 2:
-                        loadFragment(new ProductFragmentActivity());
+                        loadFragment(new ProductFragment());
 //                        Intent categoryintent = new Intent(HomeActivity.this,ProductActivity.class);
 //                        startActivity(categoryintent);
                         break;
                     case 3:
-                        loadFragment(new UserFragmentActivity());
+                        loadFragment(new UserFragment());
 //                        Intent favouritelistintent = new Intent(MainActivity.this, );
 //                        startActivity(favouritelistintent);
                         break;

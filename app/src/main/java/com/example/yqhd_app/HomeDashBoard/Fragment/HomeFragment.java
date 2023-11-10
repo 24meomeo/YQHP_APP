@@ -43,7 +43,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class HomeFragmentActivity extends Fragment implements ItemFavouAdapter.onClickItem, ItemRcmAdapter.onClickItem {
+public class HomeFragment extends Fragment implements ItemFavouAdapter.onClickItem, ItemRcmAdapter.onClickItem {
 
     View v;
     String userID;
@@ -359,13 +359,13 @@ public class HomeFragmentActivity extends Fragment implements ItemFavouAdapter.o
             @Override
             public void onSuccess(Uri uri) {
 //                Picasso.get().load(uri).into(mimgProfileImage);
-                Glide.with(HomeFragmentActivity.this).load(uri).override(50, 50).centerCrop().into(mimgImagePro);
+                Glide.with(HomeFragment.this).load(uri).override(50, 50).centerCrop().into(mimgImagePro);
             }
         });
         mimgImagePro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent userinfointent = new Intent(HomeFragmentActivity.this.getActivity(), UserInfoActivity.class);
+                Intent userinfointent = new Intent(HomeFragment.this.getActivity(), UserInfoActivity.class);
                 startActivity(userinfointent);
 //                mdrawLo.openDrawer(GravityCompat.START);
             }
@@ -593,7 +593,7 @@ public class HomeFragmentActivity extends Fragment implements ItemFavouAdapter.o
             @Override
             public void onSuccess(Uri uri) {
                 // load ảnh từ URI vào ImageView tại đây
-                Glide.with(HomeFragmentActivity.this).load(uri).override(65, 65).centerCrop().into(mimgImagePro);
+                Glide.with(HomeFragment.this).load(uri).override(65, 65).centerCrop().into(mimgImagePro);
             }
         });
         // Lấy đối tượng TextView

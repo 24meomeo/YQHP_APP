@@ -31,12 +31,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ProductFragmentActivity extends Fragment implements ProductGridAdapter.ProductCallback {
+public class ProductFragment extends Fragment implements ProductGridAdapter.ProductCallback {
     RecyclerView rvListC;
     ArrayList<ProductModel> lstProductModel;
     ProductGridAdapter productGridAdapter;
     DrawerLayout mdrawMenuPro;
-    GridLayoutManager gridLayoutManager= new GridLayoutManager(ProductFragmentActivity.this.getActivity(),2);
+    GridLayoutManager gridLayoutManager= new GridLayoutManager(ProductFragment.this.getActivity(),2);
     FloatingActionButton mFloatButtonPro;
     LinearLayout mcake, mcandy, mcupcake, mcroissant;
     ImageView mcakeimg, mcandyimg, mcupcakeimg, mcroissantimg;
@@ -354,7 +354,7 @@ public class ProductFragmentActivity extends Fragment implements ProductGridAdap
 
     @Override
     public void onItemClick(String ten, int gia, String mota, String anh) {
-        Intent i = new Intent(ProductFragmentActivity.this.getActivity(), ChiTietSPActivity.class);
+        Intent i = new Intent(ProductFragment.this.getActivity(), ChiTietSPActivity.class);
         i.putExtra("ten",ten);
         i.putExtra("mota",mota);
         i.putExtra("gia",gia);
