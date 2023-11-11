@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 
 import com.example.yqhd_app.DangNhapActivity;
+import com.example.yqhd_app.DonHang.HistoryOrderActivity;
 import com.example.yqhd_app.HomeDashBoard.UserInfoActivity;
 import com.example.yqhd_app.R;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -66,8 +67,8 @@ public class UserFragment extends Fragment {
         mtvUserOrders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { //khi làm fragment nhớ thêm getActivity
-//                Intent i = new Intent(UserFragmentActivity.this.getActivity(), HistoryOrderActivity.class);
-//                startActivity(i);
+                Intent i = new Intent(UserFragment.this.getActivity(), HistoryOrderActivity.class);
+                startActivity(i);
             }
         });
 
