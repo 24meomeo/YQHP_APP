@@ -275,7 +275,7 @@ public class ProductFragment extends Fragment implements ProductGridAdapter.Prod
     void LoadDataMenuKeo(){
         lstProductModel = new ArrayList<>();
         FirebaseFirestore.getInstance()
-                .collection("PRODUCTS").whereEqualTo("category","Kẹo")
+                .collection("PRODUCTS").whereEqualTo("category","sams")
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
@@ -295,7 +295,7 @@ public class ProductFragment extends Fragment implements ProductGridAdapter.Prod
     void LoadDataMenuBanhNho(){
         lstProductModel = new ArrayList<>();
         FirebaseFirestore.getInstance()
-                .collection("PRODUCTS").whereEqualTo("category","Cupcake")
+                .collection("PRODUCTS").whereEqualTo("category","oppo")
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
@@ -315,7 +315,7 @@ public class ProductFragment extends Fragment implements ProductGridAdapter.Prod
     void LoadDataMenuBanhMan(){
         lstProductModel = new ArrayList<>();
         FirebaseFirestore.getInstance()
-                .collection("PRODUCTS").whereEqualTo("category","Bánh mặn")
+                .collection("PRODUCTS").whereEqualTo("category","ip")
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
