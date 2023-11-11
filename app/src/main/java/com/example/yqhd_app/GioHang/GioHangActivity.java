@@ -15,8 +15,8 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-//import com.example.yqhd_app.GioHang.ThanhToan.ThanhToanActivity;
-//import com.example.yqhd_app.HomeDashboard.HomeActivity;
+import com.example.yqhd_app.GioHang.ThanhToan.ThanhToanActivity;
+import com.example.yqhd_app.HomeDashBoard.HomeActivity;
 import com.example.yqhd_app.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
@@ -70,13 +70,13 @@ public class GioHangActivity extends AppCompatActivity {
             }
         });
 
-//        btnHome.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent i = new Intent(GioHangActivity.this, HomeActivity.class);
-//                startActivity(i);
-//            }
-//        });
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(GioHangActivity.this, HomeActivity.class);
+                startActivity(i);
+            }
+        });
 
         auth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
@@ -117,12 +117,12 @@ public class GioHangActivity extends AppCompatActivity {
 //        });
 
         //Nhấn nút thanh toán
-//        btnThanhToan.setOnClickListener(view -> {
-//            Intent i = new Intent(GioHangActivity.this, ThanhToanActivity.class);
-//            i.putExtra("totalPriceFromCart", totalBill);
-//            i.putExtra("totalQuantityFromCart", totalQuantity);
-//            startActivity(i);
-//        });
+        btnThanhToan.setOnClickListener(view -> {
+            Intent i = new Intent(GioHangActivity.this, ThanhToanActivity.class);
+            i.putExtra("totalPriceFromCart", totalBill);
+            i.putExtra("totalQuantityFromCart", totalQuantity);
+            startActivity(i);
+        });
     }
     private boolean checkCartEmpty() {
         return cartModelList.isEmpty();
