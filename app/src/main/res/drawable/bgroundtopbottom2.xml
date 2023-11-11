@@ -5,7 +5,7 @@
             <stroke
                 android:width="2dp"
                 android:color="@color/bgroundnotselect" />
-            <solid android:color="#011052" />
+            <solid android:color="@color/xanh" />
         </shape>
     </item>
     <item android:top="1dp">

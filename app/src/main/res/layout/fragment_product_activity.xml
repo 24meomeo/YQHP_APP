@@ -5,8 +5,7 @@
     android:layout_height="830dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/homegradient"
-    android:id="@+id/drawmenuPro"
-    tools:context=".Home.Fragment.ProductFragmentActivity">
+    android:id="@+id/drawmenuPro">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/menu"
         android:layout_width="match_parent"
@@ -40,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
                 android:fontFamily="@font/inter"
-                android:text="For u"
+                android:text="All"
                 android:textColor="@color/white"
                 android:textSize="17dp"
                 android:textStyle="bold" />
@@ -103,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
                 android:fontFamily="@font/inter"
-                android:text="Huawei"
+                android:text="Oppo"
                 android:textColor="@color/white"
                 android:textSize="17dp"
                 android:textStyle="bold"
@@ -135,7 +134,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
                 android:fontFamily="@font/inter"
-                android:text="Ophone"
+                android:text="Iphone"
                 android:textColor="@color/white"
                 android:textSize="17dp"
                 android:textStyle="bold"

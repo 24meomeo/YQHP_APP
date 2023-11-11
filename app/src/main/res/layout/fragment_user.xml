@@ -4,13 +4,12 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Home.Fragment.UserFragmentActivity"
     android:background="@drawable/homegradient">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/generalInfo"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="@drawable/bgroundtopbottom2"
+        android:background="@color/xanh"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
@@ -53,7 +52,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#000933"
+            android:background="@color/xanh"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -79,7 +78,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textStyle="bold"
                     android:text="Thông tin tài khoản"
                     android:layout_marginLeft="15dp"
@@ -111,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:text="Ví voucher"
                     android:layout_marginLeft="15dp"
                     app:layout_constraintLeft_toRightOf="@+id/imgUserVoucher"
@@ -144,7 +143,7 @@
                     android:textStyle="bold"
                     android:text="Lịch sử đơn hàng"
                     android:layout_marginLeft="15dp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     app:layout_constraintLeft_toRightOf="@+id/imgUserOrders"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"/>
@@ -173,7 +172,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:text="FAQs"
                 android:layout_marginLeft="45dp"
                 android:layout_marginTop="10dp"
@@ -186,7 +185,7 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:text="About Us"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:layout_marginLeft="45dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -198,7 +197,7 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:text="Privacy"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:layout_marginLeft="45dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintLeft_toLeftOf="parent"
