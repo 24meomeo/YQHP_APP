@@ -48,6 +48,10 @@
             android:name=".GioHang.GioHangActivity"
             android:exported="false">
         </activity>
+        <activity
+            android:name=".GioHang.ThanhToan.ThanhToanActivity"
+            android:exported="false">
+        </activity>
     </application>
 
 </manifest>
