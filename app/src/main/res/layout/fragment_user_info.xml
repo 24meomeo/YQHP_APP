@@ -20,7 +20,7 @@
         android:id="@+id/imgProfileImage"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
@@ -28,8 +28,8 @@
         android:id="@+id/imgbtProfileImageChange"
         android:layout_width="36dp"
         android:layout_height="30dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginLeft="140dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="130dp"
         android:background="@null"
         android:scaleType="fitCenter"
         android:src="@drawable/imagegallery"
@@ -38,12 +38,12 @@
         app:layout_constraintRight_toRightOf="parent"/>
 
     <LinearLayout
-        android:layout_width="411dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="50dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_margin="5dp"
+        android:layout_margin="15dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgProfileImage">
 
@@ -62,7 +62,7 @@
 
             <EditText
                 android:id="@+id/edtProfileUserName"
-                android:layout_width="327dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:hint="Họ tên"
@@ -87,7 +87,7 @@
 
             <EditText
                 android:id="@+id/edtProfileUserMail"
-                android:layout_width="327dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:textColorHint="@color/black"
@@ -112,7 +112,7 @@
 
             <EditText
                 android:id="@+id/edtProfileUserPhone"
-                android:layout_width="327dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:hint="Số điện thoại"
@@ -132,11 +132,11 @@
                 android:id="@+id/iconDiaChiUser"
                 android:layout_width="40dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/phonecontact" />
+                android:src="@drawable/baseline_edit_location_alt_24" />
 
             <EditText
                 android:id="@+id/edtProfileUserDiaChi"
-                android:layout_width="327dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:hint="Địa chỉ"
