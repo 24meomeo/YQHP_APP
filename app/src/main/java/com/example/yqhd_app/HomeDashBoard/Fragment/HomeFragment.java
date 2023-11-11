@@ -47,7 +47,7 @@ public class HomeFragment extends Fragment implements ItemFavouAdapter.onClickIt
 
     View v;
     String userID;
-    String[] greetings = {"Hôm nay bạn thế nào?", "Cùng thử bánh nhé!", "Chào mừng trở lại!"};
+    String[] greetings = {"Hôm nay bạn thế nào?", "Cùng xem điện thoại nhé!", "Chào mừng trở lại!"};
 
     ImageButton mimgbtAboutus, mimgbtFind, mimgbtCart, mimgbtDirect, mimgbtPhone;
     AppCompatImageView linkView;
@@ -428,7 +428,7 @@ public class HomeFragment extends Fragment implements ItemFavouAdapter.onClickIt
 
         itcakefv = new ArrayList<>();
         CollectionReference itHCakeFVreference = firestoreHome.collection("PRODUCTS");
-        itHCakeFVreference.whereEqualTo("category", "Bánh kem").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        itHCakeFVreference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
@@ -445,7 +445,7 @@ public class HomeFragment extends Fragment implements ItemFavouAdapter.onClickIt
 
         itcakercm = new ArrayList<>();
         CollectionReference itHCakeRCMreference = firestoreHome.collection("PRODUCTS");
-        itHCakeRCMreference.whereEqualTo("category", "Bánh kem").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        itHCakeRCMreference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
@@ -466,7 +466,7 @@ public class HomeFragment extends Fragment implements ItemFavouAdapter.onClickIt
 
         itcandyfv = new ArrayList<>();
         CollectionReference itHCandyFVreference = firestoreHome.collection("PRODUCTS");
-        itHCandyFVreference.whereEqualTo("category", "Kẹo").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        itHCandyFVreference.whereEqualTo("category", "sams").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
@@ -483,7 +483,7 @@ public class HomeFragment extends Fragment implements ItemFavouAdapter.onClickIt
 
         itcandyrcm = new ArrayList<>();
         CollectionReference itHCandyRCMreference = firestoreHome.collection("PRODUCTS");
-        itHCandyRCMreference.whereEqualTo("category", "Kẹo").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        itHCandyRCMreference.whereEqualTo("category", "sams").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
@@ -503,7 +503,7 @@ public class HomeFragment extends Fragment implements ItemFavouAdapter.onClickIt
 
         itcupcakefv = new ArrayList<>();
         CollectionReference itHCupCFVreference = firestoreHome.collection("PRODUCTS");
-        itHCupCFVreference.whereEqualTo("category", "Cupcake").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        itHCupCFVreference.whereEqualTo("category", "oppo").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
@@ -520,7 +520,7 @@ public class HomeFragment extends Fragment implements ItemFavouAdapter.onClickIt
 //
         itcupcakercm = new ArrayList<>();
         CollectionReference itHCupCRCMreference = firestoreHome.collection("PRODUCTS");
-        itHCupCRCMreference.whereEqualTo("category", "Cupcake").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        itHCupCRCMreference.whereEqualTo("category", "oppo").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
@@ -541,7 +541,7 @@ public class HomeFragment extends Fragment implements ItemFavouAdapter.onClickIt
 
         itcroissfv = new ArrayList<>();
         CollectionReference itHCroissFVreference = firestoreHome.collection("PRODUCTS");
-        itHCroissFVreference.whereEqualTo("category", "Bánh mặn").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        itHCroissFVreference.whereEqualTo("category", "ip").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
@@ -558,7 +558,7 @@ public class HomeFragment extends Fragment implements ItemFavouAdapter.onClickIt
 
         itcroissrcm = new ArrayList<>();
         CollectionReference itHCCroissRCMreference = firestoreHome.collection("PRODUCTS");
-        itHCCroissRCMreference.whereEqualTo("category", "Bánh mặn").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        itHCCroissRCMreference.whereEqualTo("category", "ip").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
