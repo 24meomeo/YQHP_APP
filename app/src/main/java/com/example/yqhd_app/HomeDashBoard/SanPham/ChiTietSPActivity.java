@@ -52,7 +52,7 @@ public class ChiTietSPActivity extends AppCompatActivity {
     // firebase
     FirebaseAuth auth;
     private FirebaseFirestore firestore;
-    ImageButton imageButtonBack, imageButtonShare;
+    ImageButton imageButtonBack, imageButtonShare, imageButtonGioHang;
     CheckBox checkBoxFavourite;
     RadioButton radioButtonSizeS, radioButtonSizeM, radioButtonSizeL, radioButtonSizeXL;
     private CollectionReference favouriteList = FirebaseFirestore.getInstance().collection("FAVOURITES");
@@ -87,7 +87,14 @@ public class ChiTietSPActivity extends AppCompatActivity {
 
         checkBoxFavourite = findViewById(R.id.btnFavourite);
 
-
+        imageButtonGioHang = findViewById(R.id.btnBack);
+        imageButtonGioHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ChiTietSPActivity.this, GioHangActivity.class);
+                startActivity(i);
+            }
+        });
         // Load dữ liệu //
 
         //load user
