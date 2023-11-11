@@ -46,7 +46,7 @@ import java.util.Map;
 
 public class UserInfoActivity extends AppCompatActivity {
     TextView mtvProUserName, mtvProUserMail, mtvProUserPhone;
-    EditText medtProUserName, medtProUserMail, medtProUserPhone;
+    EditText medtProUserName, medtProUserMail, medtProUserPhone, medtProUserDiaChi;
     ImageView mimgProfileImage;
 //    Button mbtChangeImage;
     Button mbtChangeInfoProfile, mbtChangePassProfile, mbtnDeleteAccount;
@@ -113,6 +113,7 @@ public class UserInfoActivity extends AppCompatActivity {
         medtProUserName = findViewById(R.id.edtProfileUserName);
         medtProUserMail = findViewById(R.id.edtProfileUserMail);
         medtProUserPhone = findViewById(R.id.edtProfileUserPhone);
+        medtProUserDiaChi = findViewById(R.id.edtProfileUserDiaChi);
 //        mtvProUserName = findViewById(R.id.tvProfileUserName);
 //        mtvProUserMail = findViewById(R.id.tvProfileUserMail);
 //        mtvProUserPhone = findViewById(R.id.tvProfileUserPhone);
@@ -149,6 +150,7 @@ public class UserInfoActivity extends AppCompatActivity {
                 medtProUserName.setText(value.getString("Fullname"));
                 medtProUserMail.setText(value.getString("Mail"));
                 medtProUserPhone.setText(value.getString("Phone"));
+                medtProUserDiaChi.setText(value.getString("Address"));
             }
         });
 
@@ -211,6 +213,7 @@ public class UserInfoActivity extends AppCompatActivity {
                         || !medtProUserPhone.getText().toString().isEmpty()){
                     edited.put("Fullname", medtProUserName.getText().toString());
                     edited.put("Phone", medtProUserPhone.getText().toString());
+                    edited.put("Address", medtProUserDiaChi.getText().toString());
                     ChangeInfodocumentReference.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
