@@ -49,19 +49,19 @@
             android:exported="false">
         </activity>
         <activity
-<<<<<<< HEAD
             android:name=".DonHang.HistoryOrderActivity"
             android:exported="false">
         </activity>
         <activity
             android:name=".DonHang.HistoryOrderDetailActivity"
-=======
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".GioHang.ThanhToan.ThanhToanActivity"
             android:exported="false">
         </activity>
         <activity
             android:name=".GioHang.ThanhToan.SuccessOrderActivity"
->>>>>>> 8e53feb1d3a12d7e0235d10be01b71fdf3166b1d
             android:exported="false">
         </activity>
     </application>
