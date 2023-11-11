@@ -331,8 +331,8 @@ public class ThanhToanActivity extends AppCompatActivity {
                 }
 //                requestZaloPay(id);
 
-//                Intent i = new Intent(ThanhToanActivity.this, SuccessOrderActivity.class);
-//                startActivity(i);
+                Intent i = new Intent(ThanhToanActivity.this, SuccessOrderActivity.class);
+                startActivity(i);
             }
         });
 
