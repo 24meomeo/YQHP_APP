@@ -48,6 +48,14 @@
             android:name=".GioHang.GioHangActivity"
             android:exported="false">
         </activity>
+        <activity
+            android:name=".DonHang.HistoryOrderActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".DonHang.HistoryOrderDetailActivity"
+            android:exported="false">
+        </activity>
     </application>
 
 </manifest>
