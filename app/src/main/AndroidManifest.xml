@@ -12,6 +12,9 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".QuanLy.ThemSanPhamActivity"
+            android:exported="false" />
+        <activity
             android:name=".HoanThanhActivity"
             android:exported="false" />
         <activity
@@ -30,7 +33,7 @@
         </activity>
         <activity
             android:name=".QuanLy.QuanLyActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

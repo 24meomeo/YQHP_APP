@@ -1,5 +1,6 @@
 package com.example.yqhd_app.QuanLy.TabFragment;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import com.example.yqhd_app.QuanLy.Fragment.khohangFragment;
 import com.example.yqhd_app.QuanLy.QuanLyActivity;
 import com.example.yqhd_app.QuanLy.SanPhamAdapter;
 import com.example.yqhd_app.QuanLy.SanPhamModel;
+import com.example.yqhd_app.QuanLy.ThemSanPhamActivity;
 import com.example.yqhd_app.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -81,10 +83,14 @@ public class SanPhamFragment extends Fragment {
             public void onClick(View n) {
                 //Tắt hiển thị khoFragment để addFragment hiện lên
 //                loadFragment(new ThuongHieuFragment());
-                mQuanLyActivity.gotoAddProducts();
+//                mQuanLyActivity.gotoAddProducts();
 //                mkhohangFragment.gotoAddProducts();
+                Intent toThemSanPham = new Intent(v.getContext(), ThemSanPhamActivity.class);
+                startActivity(toThemSanPham);
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
+
         return v;
     }
     private void loadFragment(Fragment fragment){
