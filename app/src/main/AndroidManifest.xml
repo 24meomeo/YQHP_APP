@@ -12,7 +12,7 @@
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".ChinhSuaSanPhamActivity"
+            android:name=".QuanLy.ChinhSuaSanPhamActivity"
             android:exported="false" />
         <activity
             android:name=".QuanLy.ThemSanPhamActivity"

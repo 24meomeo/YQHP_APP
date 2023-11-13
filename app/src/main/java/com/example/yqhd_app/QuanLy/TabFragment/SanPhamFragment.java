@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.yqhd_app.QuanLy.ChinhSuaSanPhamActivity;
 import com.example.yqhd_app.QuanLy.Fragment.khohangFragment;
 import com.example.yqhd_app.QuanLy.QuanLyActivity;
 import com.example.yqhd_app.QuanLy.SanPhamAdapter;
@@ -31,7 +32,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SanPhamFragment extends Fragment {
+public class SanPhamFragment extends Fragment implements SanPhamAdapter.onClickItem{
     View v;
     FirebaseFirestore firestore;
     FirebaseAuth firebaseAuth;
@@ -98,7 +99,8 @@ public class SanPhamFragment extends Fragment {
                 }
             }
         });
-        SPAdapter = new SanPhamAdapter(/*v.getContext()*/getActivity(), this, SPModelList);
+//        SPAdapter = new SanPhamAdapter(/*v.getContext()*/getActivity(), this, SPModelList);
+        SPAdapter = new SanPhamAdapter(getActivity(), SPModelList, this);
         recyclerView.setAdapter(SPAdapter);
         Toast.makeText(mQuanLyActivity, "onResume", Toast.LENGTH_SHORT).show();
     }
@@ -108,5 +110,22 @@ public class SanPhamFragment extends Fragment {
         fmtrans.replace(R.id.viewpagerkhohang, fragment);
         fmtrans.addToBackStack(null);
         fmtrans.commit();
+    }
+    @Override
+    public void onClickGetInfo(String id, String name, String category, int price, String description, String image) {
+        Intent  intent = new Intent(v.getContext(), ChinhSuaSanPhamActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("id", id);
+        bundle.putString("name", name);
+        bundle.putString("category", category);
+        bundle.putInt("price", price);
+        bundle.putString("description", description);
+        bundle.putString("image", image);
+//        Toast.makeText(v.getContext(), image, Toast.LENGTH_SHORT).show();
+//        fragment.setArguments(bundle);
+//        loadFragment(fragment);
+        intent.putExtras(bundle);
+        startActivity(intent);
+        getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 }
