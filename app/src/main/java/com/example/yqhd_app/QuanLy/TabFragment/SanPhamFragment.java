@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -46,6 +47,7 @@ public class SanPhamFragment extends Fragment {
     private Uri imageUri = null;
     khohangFragment mkhohangFragment;
     QuanLyActivity mQuanLyActivity;
+    CollectionReference SPcollectionReference;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -59,21 +61,6 @@ public class SanPhamFragment extends Fragment {
 //
         recyclerView = v.findViewById(R.id.rcvSP);
         recyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
-        SPModelList = new ArrayList<>();
-
-        CollectionReference SPcollectionReference = firestore.collection("PRODUCTS");
-        SPcollectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
-                for(DocumentSnapshot doc:list){
-                    SanPhamModel spModel = doc.toObject(SanPhamModel.class);
-                    SPAdapter.add(spModel);
-                }
-            }
-        });
-        SPAdapter = new SanPhamAdapter(/*v.getContext()*/getActivity(), this, SPModelList);
-        recyclerView.setAdapter(SPAdapter);
 
         mQuanLyActivity = (QuanLyActivity) getActivity();
         mkhohangFragment = new khohangFragment();
@@ -93,6 +80,29 @@ public class SanPhamFragment extends Fragment {
 
         return v;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        SPModelList = new ArrayList<>();
+
+        SPcollectionReference = firestore.collection("PRODUCTS");
+        SPcollectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                for(DocumentSnapshot doc:list){
+                    SanPhamModel spModel = doc.toObject(SanPhamModel.class);
+                    SPAdapter.add(spModel);
+                }
+            }
+        });
+        SPAdapter = new SanPhamAdapter(/*v.getContext()*/getActivity(), this, SPModelList);
+        recyclerView.setAdapter(SPAdapter);
+        Toast.makeText(mQuanLyActivity, "onResume", Toast.LENGTH_SHORT).show();
+    }
+
     private void loadFragment(Fragment fragment){
         FragmentTransaction fmtrans = getChildFragmentManager().beginTransaction();
         fmtrans.replace(R.id.viewpagerkhohang, fragment);
