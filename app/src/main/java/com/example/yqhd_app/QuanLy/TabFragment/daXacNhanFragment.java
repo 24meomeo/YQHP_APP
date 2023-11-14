@@ -1,4 +1,4 @@
-package com.example.yqhd_app.QuanLy.Fragment;
+package com.example.yqhd_app.QuanLy.TabFragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,21 +10,20 @@ import androidx.fragment.app.Fragment;
 import com.example.yqhd_app.R;
 
 
-public class donhangFragment extends Fragment {
-    public donhangFragment() {
+public class daXacNhanFragment extends Fragment {
+
+
+    public daXacNhanFragment() {
         // Required empty public constructor
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_quanly_donhang, container, false);
+        return inflater.inflate(R.layout.quanly_fragment_thuonghieu, container, false);
     }
 }
