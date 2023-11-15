@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:text="Tên SP"
+            android:fontFamily="@font/tnr"
             android:textSize="20sp"
             android:textColor="@color/black"
             android:layout_marginTop="20dp"/>
@@ -70,6 +71,7 @@
             android:textSize="24sp"
             android:textStyle="bold"
             android:text="300000"
+            android:fontFamily="@font/tnr"
             android:layout_marginBottom="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

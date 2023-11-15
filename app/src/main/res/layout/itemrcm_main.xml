@@ -53,6 +53,7 @@
         android:layout_height="35dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
+        android:fontFamily="@font/tnr"
         app:layout_constraintTop_toTopOf="@id/itrcmBgr"
         app:layout_constraintLeft_toRightOf="@id/imgbg"/>
     <LinearLayout
@@ -113,6 +114,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:fontFamily="@font/tnr"
         android:layout_marginLeft="10dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/imgbg"/>

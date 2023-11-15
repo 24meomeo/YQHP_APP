@@ -72,14 +72,14 @@ public class UserInfoActivity extends AppCompatActivity {
             }
         });
 
-        mbtnDeleteAccount = findViewById(R.id.btnDeleteAccount);
-        mbtnDeleteAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DeleteDialog deleteDialog = new DeleteDialog(UserInfoActivity.this);
-                deleteDialog.show();
-            }
-        });
+//        mbtnDeleteAccount = findViewById(R.id.btnDeleteAccount);
+//        mbtnDeleteAccount.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                DeleteDialog deleteDialog = new DeleteDialog(UserInfoActivity.this);
+//                deleteDialog.show();
+//            }
+//        });
 
 
 //        firebaseAuth = FirebaseAuth.getInstance();

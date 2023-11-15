@@ -13,21 +13,23 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:textStyle="bold"
         android:textColor="@color/black"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/tnr"
         app:layout_constraintRight_toRightOf="parent"
         android:textSize="28sp"
         />
 
+    <!--    recycle view -->
     <ImageView
         android:id="@+id/btnBackOfLSDH"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="5dp"
-        android:src="@drawable/backchitietdonhang"/>
+        android:src="@drawable/baseline_arrow_back_24"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!--    recycle view -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvHistoryOrderDetail"
         android:layout_width="match_parent"
