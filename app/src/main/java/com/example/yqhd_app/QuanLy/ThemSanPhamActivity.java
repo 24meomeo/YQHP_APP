@@ -50,7 +50,7 @@ public class ThemSanPhamActivity extends AppCompatActivity {
     private Uri imageUri = null;
     private String imageURL; //đường dẫn ảnh
     private HashMap<String, Object> map;
-    Button mbtnXacNhan;
+//    Button mbtnXacNhan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -133,14 +133,14 @@ public class ThemSanPhamActivity extends AppCompatActivity {
             }
         });
 
-        mbtnXacNhan = findViewById(R.id.btnXacNhan);
-        mbtnXacNhan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-            }
-        });
+//        mbtnXacNhan = findViewById(R.id.btnXacNhan);
+//        mbtnXacNhan.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                finish();
+//                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+//            }
+//        });
 
 
     }
