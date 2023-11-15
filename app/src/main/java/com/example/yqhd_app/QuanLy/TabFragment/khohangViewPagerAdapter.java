@@ -38,11 +38,11 @@ public class khohangViewPagerAdapter extends FragmentStatePagerAdapter {
 //        return super.getPageTitle(position);
         switch (position){
             case 0:
-                return "Chờ Xác Nhận";
+                return "Sản Phẩm";
             case 1:
-                return "Đã Xác Nhận";
+                return "Thương Hiệu";
             default:
-                return "Chờ Xác Nhận";
+                return "Sản Phẩm";
         }
     }
 }

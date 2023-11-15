@@ -38,11 +38,11 @@ public class donhangViewPagerAdapter extends FragmentStatePagerAdapter {
 //        return super.getPageTitle(position);
         switch (position){
             case 0:
-                return "Tab 1";
+                return "Chờ Xác Nhận";
             case 1:
-                return "Tab 2";
+                return "Đã Xác Nhận";
             default:
-                return "Tab 1";
+                return "Chờ Xác Nhận";
         }
     }
 }
