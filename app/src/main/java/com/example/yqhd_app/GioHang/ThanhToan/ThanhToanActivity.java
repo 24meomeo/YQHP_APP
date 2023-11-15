@@ -231,8 +231,10 @@ public class ThanhToanActivity extends AppCompatActivity {
 //                    Toast.makeText(getApplicationContext(), "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
 //                }
                 diachi = medtDiaChi.getText().toString().trim();
-                if(TextUtils.isEmpty(diachi)){
+                if(TextUtils.isEmpty(diachi)) {
                     Toast.makeText(getApplicationContext(), "Vui lòng nhập địa chỉ", Toast.LENGTH_SHORT).show();
+                }else if(diachi.length()>100){
+                    Toast.makeText(getApplicationContext(), "Địa chỉ không quá 100 ký tự", Toast.LENGTH_SHORT).show();
                 }else if (ten.length() == 0 || sodienthoai.length() == 0){
                     Toast.makeText(getApplicationContext(), "Vui lòng cập nhật đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 }else {

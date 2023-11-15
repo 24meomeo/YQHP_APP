@@ -120,13 +120,14 @@
                 android:textColor="@color/black"
                 android:textSize="20dp" />
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="15dp"
-            android:textColor="@color/black"
             android:layout_marginTop="20dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:textColor="@color/black">
 
             <ImageView
                 android:id="@+id/iconDiaChiUser"
@@ -140,8 +141,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:hint="Địa chỉ"
-                android:textColorHint="@color/black"
                 android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 android:textSize="20dp" />
         </LinearLayout>
     </LinearLayout>

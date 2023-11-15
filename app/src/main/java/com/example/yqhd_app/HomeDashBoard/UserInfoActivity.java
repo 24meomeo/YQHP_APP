@@ -211,9 +211,35 @@ public class UserInfoActivity extends AppCompatActivity {
                 }
                 if(!medtProUserName.getText().toString().isEmpty()
                         || !medtProUserPhone.getText().toString().isEmpty()){
-                    edited.put("Fullname", medtProUserName.getText().toString());
-                    edited.put("Phone", medtProUserPhone.getText().toString());
-                    edited.put("Address", medtProUserDiaChi.getText().toString());
+//                    String name = medtProUserName.getText().toString().trim();
+//                    if(name.isEmpty()) {
+//                        Toast.makeText(UserInfoActivity.this, "Vui lòng nhập tên.", Toast.LENGTH_SHORT).show();
+//                    } else if(!isValidName(name)) {
+//                        Toast.makeText(UserInfoActivity.this, "Tên sai định dạng.", Toast.LENGTH_SHORT).show();
+//                        return;
+//                    }
+                    String name = getName();
+                    if(name != null) {
+                        edited.put("Fullname", name);
+                    }
+
+                    String phone = getPhone();
+                    if(phone != null) {
+                        edited.put("Phone", phone);
+                    }
+
+                    String address = getAddress();
+                    if(address != null) {
+                        edited.put("Address", address);
+                    }
+
+
+
+//                    edited.put("Fullname", medtProUserName.getText().toString());
+//                    edited.put("Phone", medtProUserPhone.getText().toString());
+//                    edited.put("Address", medtProUserDiaChi.getText().toString());
+
+
                     ChangeInfodocumentReference.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
@@ -230,6 +256,7 @@ public class UserInfoActivity extends AppCompatActivity {
                 }
 
 
+
 //                CollectionReference ChangeInfocollectionReference = firestore.collection("USERS").document(userID).collection("Info");
 //                ChangeInfocollectionReference.
             }
@@ -243,6 +270,48 @@ public class UserInfoActivity extends AppCompatActivity {
                 dialog.show();
             }
         });
+    }
+
+//    private boolean isValidName(String name) {
+//        return name.matches("[a-zA-Z]+(\\s[a-zA-Z]+)?");
+//    }
+    private String getName() {
+        String name = medtProUserName.getText().toString().trim();
+
+        if(name.length() > 20) {
+            Toast.makeText(UserInfoActivity.this, "Tên không quá 20 ký tự", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+        return name;
+    }
+
+    private String getPhone() {
+        String phone = medtProUserPhone.getText().toString().trim();
+
+        if(!isValidPhone(phone)) {
+            Toast.makeText(UserInfoActivity.this, "Số điện thoại không hợp lệ", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+
+        return phone;
+    }
+    private boolean isValidPhone(String phone) {
+
+        // Biểu thức chính quy kiểm tra định dạng số điện thoại Việt Nam
+        String regex = "^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$";
+
+        return phone.matches(regex);
+    }
+
+
+    private String getAddress() {
+        String diachi = medtProUserDiaChi.getText().toString().trim();
+
+        if(diachi.length() > 100) {
+            Toast.makeText(UserInfoActivity.this, "Địa chỉ không quá 100 ký tự", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+        return diachi;
     }
 
     @Override

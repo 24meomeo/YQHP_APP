@@ -51,6 +51,7 @@ public class DangNhapActivity extends AppCompatActivity {
 //        mbtngui = findViewById(R.id.btnreset);
 
         Dangnhap();
+        btnDangNhap.performClick();
         Dangky();
         quenmatkhau();
     }
@@ -66,6 +67,8 @@ public class DangNhapActivity extends AppCompatActivity {
     }
 
     private void Dangnhap() {
+        medtmail.setText("meomeo2483@gmail.com");
+        medtpass.setText("123456");
         btnDangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
