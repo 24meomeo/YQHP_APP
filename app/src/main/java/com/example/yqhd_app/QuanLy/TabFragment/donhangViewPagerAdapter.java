@@ -19,6 +19,8 @@ public class donhangViewPagerAdapter extends FragmentStatePagerAdapter {
                 return new chuaXacNhanFragment();
             case 1:
                 return new daXacNhanFragment();
+            case 2:
+                return new daHuyFragment();
             default:
                 return new chuaXacNhanFragment();
 //            case 2:
@@ -29,7 +31,7 @@ public class donhangViewPagerAdapter extends FragmentStatePagerAdapter {
     //Trả về số lượng item (tương ứng với từng trang ở thanh trượt dưới)
     @Override
     public int getCount() {
-        return 2;
+        return 3;
     }
 
     @Nullable
@@ -41,6 +43,8 @@ public class donhangViewPagerAdapter extends FragmentStatePagerAdapter {
                 return "Chờ Xác Nhận";
             case 1:
                 return "Đã Xác Nhận";
+            case 2:
+                return "Đã Hủy";
             default:
                 return "Chờ Xác Nhận";
         }

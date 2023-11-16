@@ -193,9 +193,6 @@ public class ThemSanPhamActivity extends AppCompatActivity {
                                     map.put("image", imageURL);
                                     map.put("description", mota);
                                     map.put("id", id);
-//                    if (imageUrl != null) {
-//                        map.put("imageUrl", imageUrl);
-//                    }
                                     collectionReference.document(id).set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {

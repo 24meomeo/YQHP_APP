@@ -25,14 +25,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
-public class chuaXacNhanFragment extends Fragment implements DonHangAdapter.onClickItem{
+public class daHuyFragment extends Fragment implements DonHangAdapter.onClickItem{
 
 
-    public chuaXacNhanFragment() {
+    public daHuyFragment() {
         // Required empty public constructor
     }
     View v;
@@ -49,17 +48,18 @@ public class chuaXacNhanFragment extends Fragment implements DonHangAdapter.onCl
     DonHangAdapter donhangadapter;
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.quanly_fragment_donhang_chuaxacnhan, container, false);
+        v = inflater.inflate(R.layout.quanly_fragment_donhang_dahuy, container, false);
 
         auth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
 //        firebaseAuth = FirebaseAuth.getInstance();
 //        userID = firebaseAuth.getCurrentUser().getUid();
 //
-        recyclerView = v.findViewById(R.id.rcvDonHangChuaXacNhan);
+        recyclerView = v.findViewById(R.id.rcvDonHangDaHuy);
         recyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
 
 
@@ -71,7 +71,7 @@ public class chuaXacNhanFragment extends Fragment implements DonHangAdapter.onCl
         super.onResume();
         donHangModelList = new ArrayList<>();
         CollectionReference collectionReference = firestore.collection("ORDERS");
-        collectionReference.whereIn("trangthai", Arrays.asList(0, 2, 3)).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        collectionReference.whereEqualTo("trangthai", 4).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
