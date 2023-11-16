@@ -29,7 +29,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:textAlignment="viewStart"
             android:hint="meo xinh dep"
             android:textColor="@color/black"
             android:textSize="20sp" />
@@ -53,9 +52,9 @@
 
         <TextView
             android:id="@+id/HistoryTongGia"
-            android:textAlignment="viewStart"
             android:layout_weight="3"
             android:textSize="20sp"
+            android:gravity="center_vertical"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
@@ -80,7 +79,7 @@
         <TextView
             android:id="@+id/HistoryNgayMua"
             android:layout_weight="3"
-            android:textAlignment="viewStart"
+            android:gravity="center_vertical"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:layout_width="wrap_content"
@@ -108,7 +107,7 @@
             android:layout_weight="3"
             android:textSize="20sp"
             android:layout_width="wrap_content"
-            android:textAlignment="viewStart"
+            android:gravity="center_vertical"
             android:textColor="@color/black"
             android:layout_height="match_parent"/>
     </LinearLayout>
@@ -133,7 +132,7 @@
             android:layout_weight="3"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textAlignment="viewStart"
+            android:gravity="center_vertical"
             android:layout_width="wrap_content"
             android:textColor="@color/black"
             android:layout_height="match_parent"/>

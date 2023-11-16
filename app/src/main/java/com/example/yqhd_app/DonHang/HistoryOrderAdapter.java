@@ -55,25 +55,25 @@ public class HistoryOrderAdapter extends RecyclerView.Adapter<HistoryOrderAdapte
         holder.gioMua.setText(item.getThoigianMua());
         int trangthai = item.getTrangthai();
         if(trangthai == 0){
-            holder.trangthai.setText("Đang chờ");
+            holder.trangthai.setText("Đang Chờ");
             holder.trangthai.setTextColor(Color.parseColor("#F62D2B"));
         }else if(trangthai == 1){
-            holder.trangthai.setText("Đã xác nhận");
+            holder.trangthai.setText("Đã Xác Nhận");
             holder.trangthai.setTextColor(Color.parseColor("#088948"));
         }else if(trangthai == 2){
-            holder.trangthai.setText("Đang làm bánh");
+            holder.trangthai.setText("Chưa Thanh Toán");
             holder.trangthai.setTextColor(Color.parseColor("#088948"));
         }else if(trangthai == 3){
-            holder.trangthai.setText("Bánh đã có");
+            holder.trangthai.setText("Gửi Yêu Cầu Hủy");
             holder.trangthai.setTextColor(Color.parseColor("#088948"));
         }else{
-            holder.trangthai.setText("Từ chối");
+            holder.trangthai.setText("Đã Hủy");
             holder.trangthai.setTextColor(Color.parseColor("#DF0512"));
         }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onClickItemListener.onClickToDetail(item.getMadonhang(), item.getMakhachhang());
+                onClickItemListener.onClickToDetail(item.getMadonhang(), item.getMakhachhang(), item.getTrangthai());
             }
         });
     }
@@ -95,7 +95,7 @@ public class HistoryOrderAdapter extends RecyclerView.Adapter<HistoryOrderAdapte
         }
     }
     public interface onClickItem{
-        void onClickToDetail(String madonhang, String makhachhang);
+        void onClickToDetail(String madonhang, String makhachhang, int trangthai);
     }
     public void add(HistoryOrderModel SanPhamModel){
         list.add(SanPhamModel);

@@ -69,6 +69,21 @@ public class HistoryOrderActivity extends AppCompatActivity implements HistoryOr
 
         recyclerView = findViewById(R.id.rcvHistoryOrder);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(HistoryOrderActivity.this, HomeActivity.class);
+                startActivity(i);
+            }
+        });
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         historyOrderModelList = new ArrayList<>();
         CollectionReference HistoryOrderDocumnetReference = firestore.collection("ORDERS");
         HistoryOrderDocumnetReference.whereEqualTo("makhachhang", userID).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
@@ -84,22 +99,14 @@ public class HistoryOrderActivity extends AppCompatActivity implements HistoryOr
 
         historyOrderAdapter = new HistoryOrderAdapter(this, historyOrderModelList, this);
         recyclerView.setAdapter(historyOrderAdapter);
-
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(HistoryOrderActivity.this, HomeActivity.class);
-                startActivity(i);
-            }
-        });
-
     }
 
     @Override
-    public void onClickToDetail(String madonhang, String makhachhang) {
+    public void onClickToDetail(String madonhang, String makhachhang, int trangthai) {
         Intent i = new Intent(HistoryOrderActivity.this, HistoryOrderDetailActivity.class);
         i.putExtra("madonhang",madonhang);
         i.putExtra("makhachhang",makhachhang);
+        i.putExtra("trangthai", trangthai);
         startActivity(i);
     }
 }
