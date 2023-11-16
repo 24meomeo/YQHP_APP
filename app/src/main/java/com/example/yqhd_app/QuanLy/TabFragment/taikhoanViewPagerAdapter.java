@@ -16,11 +16,11 @@ public class taikhoanViewPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return new chuaXacNhanFragment();
+                return new taikhoanKhachHangFragment();
             case 1:
                 return new daXacNhanFragment();
             default:
-                return new chuaXacNhanFragment();
+                return new taikhoanKhachHangFragment();
 //            case 2:
 //                return new taikhoanFragment();
         }

@@ -80,26 +80,26 @@ public class QuanLyActivity extends AppCompatActivity {
         if (userId == 0) {
 
         }
-        if (userId == 0) {
-            // Vô hiệu hóa chức năng chuyển đến Item 3
-
-            bottomNavigationView.getMenu().findItem(R.id.menutaikhoan).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(@NonNull MenuItem menuItem) {
-//                    System.out.println("aaa");
-//                    Snackbar.make(viewPager, "Bạn không có quyền truy cập", Snackbar.LENGTH_SHORT).show();
-                    Toast.makeText(QuanLyActivity.this, "Bạn không có quyền truy cập", Toast.LENGTH_SHORT).show();
-                    return true;
-                }
-            });
-//            bottomNavigationView.getMenu().findItem(R.id.menutaikhoan).setEnabled(false);
-
-            // Hiển thị thông báo với Snackbar
-
-
-            // Hoặc hiển thị thông báo với Toast
-            // Toast.makeText(this, "Bạn không có quyền truy cập", Toast.LENGTH_SHORT).show();
-        }
+//        if (userId == 0) {
+//            // Vô hiệu hóa chức năng chuyển đến Item 3
+//
+//            bottomNavigationView.getMenu().findItem(R.id.menutaikhoan).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+//                @Override
+//                public boolean onMenuItemClick(@NonNull MenuItem menuItem) {
+////                    System.out.println("aaa");
+////                    Snackbar.make(viewPager, "Bạn không có quyền truy cập", Snackbar.LENGTH_SHORT).show();
+//                    Toast.makeText(QuanLyActivity.this, "Bạn không có quyền truy cập", Toast.LENGTH_SHORT).show();
+//                    return true;
+//                }
+//            });
+////            bottomNavigationView.getMenu().findItem(R.id.menutaikhoan).setEnabled(false);
+//
+//            // Hiển thị thông báo với Snackbar
+//
+//
+//            // Hoặc hiển thị thông báo với Toast
+//            // Toast.makeText(this, "Bạn không có quyền truy cập", Toast.LENGTH_SHORT).show();
+//        }
 
     }
 

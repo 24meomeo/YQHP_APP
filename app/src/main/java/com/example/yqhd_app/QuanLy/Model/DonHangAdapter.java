@@ -8,20 +8,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yqhd_app.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHolder>{
     Context context;
     List<DonHangModel> list;
 
-    private onClickButton onClickButton;
+//    private onClickButton onClickButton;
 
     FirebaseFirestore firestore;
     //    FirebaseAuth auth;
@@ -29,11 +34,11 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
     String userID;
     String trangthaibiendoi;
     private onClickItem onClickItemListener;
-    public DonHangAdapter(Context context, List<DonHangModel> list, onClickButton onClickButton) {
-        this.context = context;
-        this.list = list;
-        this.onClickButton = onClickButton;
-    }
+//    public DonHangAdapter(Context context, List<DonHangModel> list, onClickButton onClickButton) {
+//        this.context = context;
+//        this.list = list;
+//        this.onClickButton = onClickButton;
+//    }
     public DonHangAdapter(Context context, List<DonHangModel> list, onClickItem onClickItemListener) {
         this.context = context;
         this.list = list;
@@ -55,7 +60,7 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder,final int position) {
-//        firestore = FirebaseFirestore.getInstance();
+        firestore = FirebaseFirestore.getInstance();
 //        auth = FirebaseAuth.getInstance();
 //        user = auth.getCurrentUser();
 //        userID = auth.getCurrentUser().getUid();
@@ -82,7 +87,7 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
             holder.trangthai.setTextColor(Color.parseColor("#088948"));
         }else if(trangthai == 2){
             trangthaibiendoi = "Chưa Thanh Toán";
-            holder.trangthai.setTextColor(Color.parseColor("#088948"));
+            holder.trangthai.setTextColor(Color.parseColor("#7C007C"));
             holder.trangthai.setText(trangthaibiendoi);
             holder.mbtnXacNhanDonHang.setEnabled(false);
             holder.mbtnXacNhanDonHang.setAlpha(0.2f);
@@ -96,9 +101,26 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
         holder.mbtnXacNhanDonHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onClickButton.onClickToDetail(item.getMadonhang(), item.getMakhachhang(), item.getTongGia(), item.getTongSoLuong(), item.getNgayMua(),
-                        item.getThoigianMua(),
-                        item.getTrangthai());
+//                onClickButton.onClickToDetail(item.getMadonhang(), item.getMakhachhang(), item.getTongGia(), item.getTongSoLuong(), item.getNgayMua(),
+//                        item.getThoigianMua(),
+//                        item.getTrangthai());
+                HashMap<String, Object> map = new HashMap<>();
+                map.put("trangthai", 1);
+                firestore.collection("ORDERS").document(item.getMadonhang())
+                                .update(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Toast.makeText(v.getContext(), "Xác nhận thành công", Toast.LENGTH_SHORT).show();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(v.getContext(), "Xác nhận thất bại", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                list.remove(holder.getAdapterPosition());
+                notifyDataSetChanged();
             }
         });
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -108,9 +130,9 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
             }
         });
     }
-    public interface onClickButton{
-        void onClickToDetail(String madon, String makhach,int tonggia, int tongsoluong, String ngaymua, String giomua, int trangthai);
-    }
+//    public interface onClickButton{
+//        void onClickToDetail(String madon, String makhach,int tonggia, int tongsoluong, String ngaymua, String giomua, int trangthai);
+//    }
     public interface onClickItem{
         void onClickToDetail(String madonhang, int tonggia, String ngaymua, String thoigianmua, String trangthai);
     }

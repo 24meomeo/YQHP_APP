@@ -260,6 +260,8 @@ public class ChinhSuaSanPhamActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     Toast.makeText(ChinhSuaSanPhamActivity.this, "Thêm thất bại", Toast.LENGTH_SHORT).show();
+                    finish();
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 }
             });
         }
