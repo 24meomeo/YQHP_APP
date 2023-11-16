@@ -46,7 +46,6 @@ public class SanPhamFragment extends Fragment implements SanPhamAdapter.onClickI
     //firestore
     FirebaseAuth auth;
     private Uri imageUri = null;
-    khohangFragment mkhohangFragment;
     QuanLyActivity mQuanLyActivity;
     CollectionReference SPcollectionReference;
     @Override
@@ -64,7 +63,6 @@ public class SanPhamFragment extends Fragment implements SanPhamAdapter.onClickI
         recyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
 
         mQuanLyActivity = (QuanLyActivity) getActivity();
-        mkhohangFragment = new khohangFragment();
         mbtnThem = v.findViewById(R.id.btnFloatingAddProduct);
         mbtnThem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +100,7 @@ public class SanPhamFragment extends Fragment implements SanPhamAdapter.onClickI
 //        SPAdapter = new SanPhamAdapter(/*v.getContext()*/getActivity(), this, SPModelList);
         SPAdapter = new SanPhamAdapter(getActivity(), SPModelList, this);
         recyclerView.setAdapter(SPAdapter);
-        Toast.makeText(mQuanLyActivity, "onResume", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(mQuanLyActivity, "onResume", Toast.LENGTH_SHORT).show();
     }
 
     private void loadFragment(Fragment fragment){

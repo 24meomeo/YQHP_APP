@@ -220,7 +220,7 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), sotrangthai + "", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(v.getContext(), sotrangthai + "", Toast.LENGTH_SHORT).show();
                 onClickItemListener.onClickToDetail(item.getMadonhang(), item.getTongGia(), item.getNgayMua(), item.getThoigianMua(), holder.trangthai.getText().toString(), item.getTrangthai());
             }
         });

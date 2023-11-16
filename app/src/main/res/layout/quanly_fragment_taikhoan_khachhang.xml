@@ -15,10 +15,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         tools:listitem="@layout/qltaikhoankhachhang_item"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="100dp"
-        android:gravity="center"
-        android:text="abc"/>
 </FrameLayout>

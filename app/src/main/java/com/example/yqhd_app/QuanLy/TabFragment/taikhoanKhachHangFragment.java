@@ -83,6 +83,6 @@ public class taikhoanKhachHangFragment extends Fragment {
         });
         taikhoankhachhangadapter = new TaiKhoanKhachHangAdapter(v.getContext(), taiKhoanKhachHangModelList);
         recyclerView.setAdapter(taikhoankhachhangadapter);
-        Toast.makeText(getContext(), "onResumeChuaXacNhan", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getContext(), "onResumeChuaXacNhan", Toast.LENGTH_SHORT).show();
     }
 }
