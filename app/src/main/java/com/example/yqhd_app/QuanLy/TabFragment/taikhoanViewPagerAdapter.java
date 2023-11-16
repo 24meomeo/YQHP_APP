@@ -16,11 +16,11 @@ public class taikhoanViewPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return new taikhoanKhachHangFragment();
+                return new tkKhachHangHoatDongFragment();
             case 1:
-                return new daXacNhanFragment();
+                return new tkKhachHangKhoaFragment();
             default:
-                return new taikhoanKhachHangFragment();
+                return new tkKhachHangHoatDongFragment();
 //            case 2:
 //                return new taikhoanFragment();
         }
@@ -38,11 +38,11 @@ public class taikhoanViewPagerAdapter extends FragmentStatePagerAdapter {
 //        return super.getPageTitle(position);
         switch (position){
             case 0:
-                return "Khách Hàng";
+                return "Hoạt Động";
             case 1:
-                return "Nhân Viên";
+                return "Đã Khóa";
             default:
-                return "Khách Hàng";
+                return "Hoạt Động";
         }
     }
 }

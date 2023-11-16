@@ -68,6 +68,23 @@ public class TaiKhoanKhachHangModel {
     public TaiKhoanKhachHangModel() {
     }
 
+    public TaiKhoanKhachHangModel(String fullname, String mail, String phone, String address, int trangthai) {
+        Fullname = fullname;
+        Mail = mail;
+        Phone = phone;
+        Address = address;
+        this.trangthai = trangthai;
+    }
+
+    public TaiKhoanKhachHangModel(String idUser, String fullname, String mail, String phone, String address, int trangthai) {
+        this.idUser = idUser;
+        Fullname = fullname;
+        Mail = mail;
+        Phone = phone;
+        Address = address;
+        this.trangthai = trangthai;
+    }
+
     public TaiKhoanKhachHangModel(String fullname, String mail, String phone, String address, int trangthai, int vaitro) {
         Fullname = fullname;
         Mail = mail;

@@ -15,8 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yqhd_app.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -64,9 +66,9 @@ public class TaiKhoanKhachHangAdapter extends RecyclerView.Adapter<TaiKhoanKhach
         holder.mtvSdtKH.setText(String.valueOf(item.getPhone()));
         holder.mtvMailKH.setText(String.valueOf(item.getMail()));
 
-        int trangthai = item.getTrangthai();
-        if(trangthai == 0){
-            trangthaibiendoi = "Active";
+        int sotrangthai = item.getTrangthai();
+        if(sotrangthai == 0){
+            trangthaibiendoi = "Hoạt Động";
             holder.trangthai.setText(trangthaibiendoi);
             holder.trangthai.setTextColor(Color.parseColor("#088948"));
             holder.mbtnKhoaTK.setText("Khóa");
@@ -74,31 +76,27 @@ public class TaiKhoanKhachHangAdapter extends RecyclerView.Adapter<TaiKhoanKhach
             holder.mbtnKhoaTK.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(v.getContext(), "Khóa lại", Toast.LENGTH_SHORT).show();
-//                    notifyItemChanged(ptt);
-                    holder.mbtnKhoaTK.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#088948")));
-                    holder.mbtnKhoaTK.setText("Mở");
-
-//                    holder.mbtnKhoaTK.setBackgroundColor(Color.parseColor("#088948"));
                     HashMap<String, Object> map = new HashMap<>();
-                    map.put("trangthai", holder.mbtnKhoaTK.getText().toString().trim());
-//                    firestore.collection("USERS").document(item.getIdUser()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-//                        @Override
-//                        public void onSuccess(Void unused) {
-//                            Toast.makeText(v.getContext(), "Xóa sản phẩm thành công", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }).addOnFailureListener(new OnFailureListener() {
-//                        @Override
-//                        public void onFailure(@NonNull Exception e) {
-//                            Toast.makeText(v.getContext(), "Xóa sản phẩm thất bại", Toast.LENGTH_SHORT).show();
-//                        }
-//                    });
+                    map.put("trangthai", 1);
+                    firestore.collection("USERS").document(item.getIdUser())
+                            .update(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    Toast.makeText(v.getContext(), "Khóa thành công", Toast.LENGTH_SHORT).show();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(v.getContext(), "Khóa thất bại", Toast.LENGTH_SHORT).show();
+                                }
+                            });
 
-                    notifyItemChanged(holder.getAdapterPosition());
+                    list.remove(holder.getAdapterPosition());
+                    notifyDataSetChanged();
                 }
             });
-        }else if(trangthai == 1){
-            trangthaibiendoi = "Locked";
+        }else if(sotrangthai == 1){
+            trangthaibiendoi = "Khóa";
             holder.trangthai.setText(trangthaibiendoi);
             holder.trangthai.setTextColor(Color.parseColor("#F62D2B"));
             holder.mbtnKhoaTK.setText("Mở");
@@ -106,7 +104,23 @@ public class TaiKhoanKhachHangAdapter extends RecyclerView.Adapter<TaiKhoanKhach
             holder.mbtnKhoaTK.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(v.getContext(), "Mở lại", Toast.LENGTH_SHORT).show();
+                    HashMap<String, Object> map = new HashMap<>();
+                    map.put("trangthai", 0);
+                    firestore.collection("USERS").document(item.getIdUser())
+                            .update(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    Toast.makeText(v.getContext(), "Mở thành công", Toast.LENGTH_SHORT).show();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(v.getContext(), "Mở thất bại", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+                    list.remove(holder.getAdapterPosition());
+                    notifyDataSetChanged();
                 }
             });
         }
