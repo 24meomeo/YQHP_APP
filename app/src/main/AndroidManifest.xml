@@ -31,9 +31,6 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
-        <activity
-            android:name=".QuanLy.QuanLyActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,8 +39,46 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".QuanLy.QuanLyActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
             android:name=".QuanLy.Activity.ChiTietDonHangActivity"
             android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".HomeDashBoard.HomeActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".HomeDashBoard.UserInfoActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".HomeDashBoard.SanPham.ChiTietSPActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".GioHang.GioHangActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".DonHang.HistoryOrderActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".DonHang.HistoryOrderDetailActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".GioHang.ThanhToan.ThanhToanActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".GioHang.ThanhToan.SuccessOrderActivity"
+            android:exported="false">
         </activity>
     </application>
 

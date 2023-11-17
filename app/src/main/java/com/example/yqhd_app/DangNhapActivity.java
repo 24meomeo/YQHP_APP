@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.yqhd_app.HomeDashBoard.HomeActivity;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -91,7 +92,7 @@ public class DangNhapActivity extends AppCompatActivity {
                                         } else {
                                             Boolean verification = auth.getCurrentUser().isEmailVerified();
                                             if (verification == true) {
-                                                Intent intent = new Intent(DangNhapActivity.this, MainActivity.class);
+                                                Intent intent = new Intent(DangNhapActivity.this, HomeActivity.class);
                                                 startActivity(intent);
                                             } else {
                                                 AlertDialog.Builder d = new AlertDialog.Builder(DangNhapActivity.this);
