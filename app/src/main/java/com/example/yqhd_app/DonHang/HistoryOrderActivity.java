@@ -96,10 +96,11 @@ public class HistoryOrderActivity extends AppCompatActivity implements HistoryOr
     }
 
     @Override
-    public void onClickToDetail(String madonhang, String makhachhang) {
+    public void onClickToDetail(String madonhang, String makhachhang, int trangthai) {
         Intent i = new Intent(HistoryOrderActivity.this, HistoryOrderDetailActivity.class);
         i.putExtra("madonhang",madonhang);
         i.putExtra("makhachhang",makhachhang);
+        i.putExtra("trangthai",trangthai);
         startActivity(i);
     }
 }

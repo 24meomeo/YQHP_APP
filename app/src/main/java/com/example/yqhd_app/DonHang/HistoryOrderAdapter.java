@@ -73,7 +73,7 @@ public class HistoryOrderAdapter extends RecyclerView.Adapter<HistoryOrderAdapte
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onClickItemListener.onClickToDetail(item.getMadonhang(), item.getMakhachhang());
+                onClickItemListener.onClickToDetail(item.getMadonhang(), item.getMakhachhang(), item.getTrangthai());
             }
         });
     }
@@ -95,7 +95,7 @@ public class HistoryOrderAdapter extends RecyclerView.Adapter<HistoryOrderAdapte
         }
     }
     public interface onClickItem{
-        void onClickToDetail(String madonhang, String makhachhang);
+        void onClickToDetail(String madonhang, String makhachhang, int trangthai);
     }
     public void add(HistoryOrderModel SanPhamModel){
         list.add(SanPhamModel);
