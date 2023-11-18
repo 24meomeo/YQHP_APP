@@ -64,6 +64,19 @@
             android:name=".GioHang.ThanhToan.SuccessOrderActivity"
             android:exported="false">
         </activity>
+        <activity
+            android:name=".QuanLy.QuanLyActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".QuanLy.Activity.ChiTietDonHangActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

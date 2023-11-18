@@ -19,6 +19,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.yqhd_app.HomeDashBoard.HomeActivity;
+import com.example.yqhd_app.QuanLy.QuanLyActivity;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -51,7 +52,7 @@ public class DangNhapActivity extends AppCompatActivity {
 //        mbtngui = findViewById(R.id.btnreset);
 
         Dangnhap();
-        btnDangNhap.performClick();
+//        btnDangNhap.performClick();
         Dangky();
         quenmatkhau();
     }
@@ -89,8 +90,8 @@ public class DangNhapActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
 //
                                     if (task.isSuccessful()) {
-                                        if ((medtmail.getText().toString()).equals("yenquochangpu@gmail.com") && (medtpass.getText().toString()).equals("hehe321")) {
-                                            Intent intent = new Intent(DangNhapActivity.this, MainActivity.class);
+                                        if ((medtmail.getText().toString()).equals("ayecutebuny@gmail.com") && (medtpass.getText().toString()).equals("hehe123")) {
+                                            Intent intent = new Intent(DangNhapActivity.this, QuanLyActivity.class);
                                             startActivity(intent);
                                         } else {
                                             Boolean verification = auth.getCurrentUser().isEmailVerified();
