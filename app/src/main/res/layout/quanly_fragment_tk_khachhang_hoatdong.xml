@@ -15,4 +15,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         tools:listitem="@layout/qltaikhoankhachhang_item"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnFloatingDangXuat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="120dp"
+        android:layout_marginRight="20dp"
+        android:contentDescription="Thêm sản phẩm"
+        app:srcCompat="@drawable/logo"
+        android:backgroundTint="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_gravity="bottom|right" />
 </FrameLayout>

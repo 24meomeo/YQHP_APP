@@ -1,5 +1,6 @@
 package com.example.yqhd_app.QuanLy.TabFragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.yqhd_app.DangNhapActivity;
+import com.example.yqhd_app.HomeDashBoard.Fragment.UserFragment;
 import com.example.yqhd_app.QuanLy.Model.TaiKhoanKhachHangAdapter;
 import com.example.yqhd_app.QuanLy.Model.TaiKhoanKhachHangModel;
 import com.example.yqhd_app.R;
@@ -43,6 +46,7 @@ public class tkKhachHangHoatDongFragment extends Fragment {
     FirebaseAuth auth;
     List<TaiKhoanKhachHangModel> taiKhoanKhachHangModelList;
     TaiKhoanKhachHangAdapter taikhoankhachhangadapter;
+    FloatingActionButton btnDangXuat;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,6 +61,15 @@ public class tkKhachHangHoatDongFragment extends Fragment {
         recyclerView = v.findViewById(R.id.rcvQLKhachHang);
         recyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
 
+        btnDangXuat = v.findViewById(R.id.btnFloatingDangXuat);
+        btnDangXuat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.signOut();
+                Intent intentSignOut = new Intent(tkKhachHangHoatDongFragment.this.getActivity(), DangNhapActivity.class);
+                startActivity(intentSignOut);
+            }
+        });
 
         return v;
     }
