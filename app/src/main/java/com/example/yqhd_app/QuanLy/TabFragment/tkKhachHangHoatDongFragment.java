@@ -65,7 +65,7 @@ public class tkKhachHangHoatDongFragment extends Fragment {
         btnDangXuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firebaseAuth.signOut();
+                auth.signOut();
                 Intent intentSignOut = new Intent(tkKhachHangHoatDongFragment.this.getActivity(), DangNhapActivity.class);
                 startActivity(intentSignOut);
             }

@@ -139,6 +139,8 @@ public class ChiTietDonHangActivity extends AppCompatActivity {
                                     Toast.makeText(v.getContext(), "Hủy thất bại", Toast.LENGTH_SHORT).show();
                                 }
                             });
+                    finish();
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 }
             });
         } else {

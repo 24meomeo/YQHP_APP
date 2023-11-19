@@ -47,8 +47,10 @@ public class HistoryOrderDetailActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HistoryOrderDetailActivity.this, HistoryOrderActivity.class);
-                startActivity(i);
+                finish();
+                HistoryOrderDetailActivity.this.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+//                Intent i = new Intent(HistoryOrderDetailActivity.this, HistoryOrderActivity.class);
+//                startActivity(i);
             }
         });
 
@@ -89,16 +91,19 @@ public class HistoryOrderDetailActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     Toast.makeText(v.getContext(), "Yêu Cầu Hủy Thành Công", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                    HistoryOrderDetailActivity.this.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
                                     Toast.makeText(v.getContext(), "Hủy thất bại", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                    HistoryOrderDetailActivity.this.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                                 }
                             });
                 }
             });
-            finish();
         }
 
     }
