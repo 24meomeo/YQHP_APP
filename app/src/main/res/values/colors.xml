@@ -14,13 +14,5 @@
     <color name="center">#2980B9</color>
     <color name="endColor">#E7F9FB</color>
 
-    <color name="pinklogo">#EE3266</color>
-    <color name="maincolor">#061848</color>
-    <color name="bgroundnotselect">#FBF2F7</color>
-    <color name="texthome">#5E4386</color>
-    <color name="cake">#FD4879</color>
-    <color name="candy">#47DFC4</color>
-    <color name="cupcake">#4DA1E2</color>
-    <color name="croissant">#FED056</color>
-    <color name="bl">#2561A1</color>
+
 </resources>
