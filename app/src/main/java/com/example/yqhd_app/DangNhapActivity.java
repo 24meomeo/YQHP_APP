@@ -12,18 +12,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.FirebaseAuth;
+import com.example.yqhd_app.HomeDashBoard.HomeActivity;
+import com.example.yqhd_app.QuanLy.QuanLyActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class DangNhapActivity extends AppCompatActivity {
@@ -34,7 +37,8 @@ public class DangNhapActivity extends AppCompatActivity {
     private CountDownTimer countDownTimer;
     private FirebaseAuth auth;
     FirebaseUser mUser;
-
+    FirebaseFirestore firestore;
+    String userID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,12 +49,14 @@ public class DangNhapActivity extends AppCompatActivity {
         medtpass = findViewById(R.id.edtpassdn);
         mtvquenmk = findViewById(R.id.tvqmk);
 
+        firestore = FirebaseFirestore.getInstance();
 
 //        medtmailquenpass = findViewById(R.id.edtemailquenpass);
 //        mbtnthoat = findViewById(R.id.btnthoatquenpass);
 //        mbtngui = findViewById(R.id.btnreset);
 
         Dangnhap();
+//        btnDangNhap.performClick();
         Dangky();
         quenmatkhau();
     }
@@ -66,6 +72,8 @@ public class DangNhapActivity extends AppCompatActivity {
     }
 
     private void Dangnhap() {
+        medtmail.setText("meomeo2483@gmail.com");
+        medtpass.setText("123456");
         btnDangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,52 +92,65 @@ public class DangNhapActivity extends AppCompatActivity {
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
-//
+
                                     if (task.isSuccessful()) {
-                                        if ((medtmail.getText().toString()).equals("yenquochangpu@gmail.com") && (medtpass.getText().toString()).equals("hehe321")) {
-                                            Intent intent = new Intent(DangNhapActivity.this, MainActivity.class);
-                                            startActivity(intent);
-                                        } else {
-                                            Boolean verification = auth.getCurrentUser().isEmailVerified();
-                                            if (verification == true) {
-                                                Intent intent = new Intent(DangNhapActivity.this, MainActivity.class);
-                                                startActivity(intent);
-                                            } else {
-                                                AlertDialog.Builder d = new AlertDialog.Builder(DangNhapActivity.this);
-                                                // thiết lập tiêu đề, nội dung, nút button
-                                                d.setTitle("Xác nhận gmail");
-                                                d.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
-                                                    @Override
-                                                    public void onClick(DialogInterface dialog, int which) {
-                                                        if (!isResendClicked) {   // Nếu button resend chưa được nhấn trong lần nào trước đó
-                                                            mUser.sendEmailVerification()
-                                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                                        @Override
-                                                                        public void onComplete(@NonNull Task<Void> task) {
-                                                                            if (task.isSuccessful()) {
-                                                                                Toast.makeText(DangNhapActivity.this, "Vui lòng xác nhận gmail " + mUser.getEmail(), Toast.LENGTH_SHORT).show();
-                                                                                // isResendClicked = true;    // Đánh dấu là button resend đã được nhấn 1 lần
-                                                                                //setTimer();                // Thiết lập đếm ngược thời gian chờ giữa các lần gửi email xác minh
-                                                                            } else {
-                                                                                Toast.makeText(getApplicationContext(), "Nhận OTP thất bại", Toast.LENGTH_SHORT).show();
-                                                                            }
-                                                                        }
-                                                                    });
+                                        userID = auth.getCurrentUser().getUid();
+                                        DocumentReference InfoProfiledocumentReference = firestore.collection("USERS").document(userID);
+                                        InfoProfiledocumentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                            @Override
+                                            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                                long trangthai = documentSnapshot.getLong("trangthai");
+                                                if(trangthai == 0){
+                                                    if ((medtmail.getText().toString()).equals("ayecutebuny@gmail.com") && (medtpass.getText().toString()).equals("hehe123")) {
+                                                        Intent intent = new Intent(DangNhapActivity.this, QuanLyActivity.class);
+                                                        startActivity(intent);
+                                                    } else {
+                                                        Boolean verification = auth.getCurrentUser().isEmailVerified();
+                                                        if (verification == true) {
+                                                            Intent intent = new Intent(DangNhapActivity.this, HomeActivity.class);
+                                                            startActivity(intent);
                                                         } else {
-                                                            Toast.makeText(getApplicationContext(), "Vui lòng đợi trong giây lát", Toast.LENGTH_SHORT).show();
+                                                            AlertDialog.Builder d = new AlertDialog.Builder(DangNhapActivity.this);
+                                                            // thiết lập tiêu đề, nội dung, nút button
+                                                            d.setTitle("Xác nhận gmail");
+                                                            d.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+                                                                @Override
+                                                                public void onClick(DialogInterface dialog, int which) {
+                                                                    if (!isResendClicked) {   // Nếu button resend chưa được nhấn trong lần nào trước đó
+                                                                        mUser.sendEmailVerification()
+                                                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                                    @Override
+                                                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                                                        if (task.isSuccessful()) {
+                                                                                            Toast.makeText(DangNhapActivity.this, "Vui lòng xác nhận gmail " + mUser.getEmail(), Toast.LENGTH_SHORT).show();
+                                                                                            // isResendClicked = true;    // Đánh dấu là button resend đã được nhấn 1 lần
+                                                                                            //setTimer();                // Thiết lập đếm ngược thời gian chờ giữa các lần gửi email xác minh
+                                                                                        } else {
+                                                                                            Toast.makeText(getApplicationContext(), "Nhận OTP thất bại", Toast.LENGTH_SHORT).show();
+                                                                                        }
+                                                                                    }
+                                                                                });
+                                                                    } else {
+                                                                        Toast.makeText(getApplicationContext(), "Vui lòng đợi trong giây lát", Toast.LENGTH_SHORT).show();
+                                                                    }
+                                                                }
+                                                            });
+                                                            d.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
+
+                                                                @Override
+                                                                public void onClick(DialogInterface dialog, int which) {
+                                                                    dialog.cancel();
+                                                                }
+                                                            });
+                                                            d.create().show();
                                                         }
                                                     }
-                                                });
-                                                d.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
-
-                                                    @Override
-                                                    public void onClick(DialogInterface dialog, int which) {
-                                                        dialog.cancel();
-                                                    }
-                                                });
-                                                d.create().show();
+                                                }else{
+                                                    Toast.makeText(DangNhapActivity.this, "Tài khoản của bạn đã bị khóa", Toast.LENGTH_SHORT).show();
+                                                }
                                             }
-                                        }
+                                        });
+
 //
                                     } else {
                                         // If sign in fails, display a message to the user.

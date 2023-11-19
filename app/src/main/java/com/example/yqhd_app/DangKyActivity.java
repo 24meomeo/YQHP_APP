@@ -88,6 +88,8 @@ public class DangKyActivity extends AppCompatActivity {
                                         userinfo.put("Fullname",null);
                                         userinfo.put("Mail", stringemail);
                                         userinfo.put("Phone",null);
+                                        userinfo.put("trangthai",0);
+                                        userinfo.put("vaitro",0);
                                         documentReference.set(userinfo);
 //                                        InfocollectionReference.add(userinfo);
 
